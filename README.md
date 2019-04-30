@@ -3,3 +3,5 @@
 This site is a work in progress at the moment, please check back soon for more awesome Q# community projects and content!
 
 We have a community slack channel [here](https://qsharp-community.slack.com), if you want to join, just drop an email to [slack@qsharp.community](mailto:slack@qsharp.community) for an invite!
+
+Our community here uses the [Contributor Covenent](https://www.contributor-covenant.org/) as a code of conduct, please email [sckaiser@sckaiser.com](mailto:sckaiser@sckaiser.com) if you have any questions or need to report something.
