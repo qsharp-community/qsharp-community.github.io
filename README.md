@@ -1,8 +1,10 @@
 ## Welcome to the Q# Community!
 
+[![Gitter](https://badges.gitter.im/qsharp-community/community.svg)](https://gitter.im/qsharp-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 This site is a work in progress at the moment, please check back soon for more awesome Q# community projects and content!
 
-We have a community Slack channel [here](https://qsharp-community.slack.com), if you want to join, just drop an email to [slack@qsharp.community](mailto:slack@qsharp.community) for an invite!
+We have a community [Gitter](https://gitter.im/qsharp-community/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link), so please ask a question about Q# or the QDK, or share a cool project you are working on there!
 
 Our community uses the [Contributor Covenent](https://www.contributor-covenant.org/) as a code of conduct, please email [sckaiser@sckaiser.com](mailto:sckaiser@sckaiser.com) if you have any questions or need to report something.
 
