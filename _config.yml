@@ -1,2 +1,9 @@
-theme: jekyll-theme-minimal
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "contrast"
+breadcrumbs: true
+read_time: true
+include: ["_pages"]
+toc: true
 logo: /media/qsharp-comm-logo.png
+title: Q# Community
+description: A space for community-driven projects and contrib libraries for Q#

@@ -2,19 +2,46 @@
 
 [![Gitter](https://badges.gitter.im/qsharp-community/community.svg)](https://gitter.im/qsharp-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-This site is a work in progress at the moment, please check back soon for more awesome Q# community projects and content!
+This group represents a bunch of folks that are excited about quantum programming with the Q# language 😊
 
-We have a community [Gitter](https://gitter.im/qsharp-community/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link), so please ask a question about Q# or the QDK, or share a cool project you are working on there!
+The purpose of this organization is to collect projects containing or related to the Q# programming language.
+The types of content welcome here are (but are not limited to):
 
-Our community uses the [Contributor Covenent](https://www.contributor-covenant.org/) as a code of conduct, please email [sckaiser@sckaiser.com](mailto:sckaiser@sckaiser.com) if you have any questions or need to report something.
+- New libraries for Q#
+- Tutorial or workshop materials featuring Q# code
+- Extensions to the Q# language itself that need some testing before being added to official repositories
+- Blog posts
 
-### Further Resources
+If you want to learn more about the process of adding a project to [qsharp-community](https://qsharp.community), please see our [community contribution guide](./_pages/CONTRIBUTING.md).
 
-#### Sample Code
-- [Quantum Development Kit Samples](https://github.com/Microsoft/Quantum)
+We have a community [Gitter](https://gitter.im/qsharp-community/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link), so please ask the community if you have a question about Q# or the QDK, want us to cross-promote or host a blog post, or want to share a cool project you are working on!
 
-#### Q# Tutorials and Exercises
-- [QuantumKatas](https://github.com/Microsoft/QuantumKatas/)
+Our community uses the [Contributor Covenant](https://www.contributor-covenant.org/) as a code of conduct, please email [info@quantum.community](mailto:info@quantum.community) if you have any questions or need to report something.
+
+
+### Official Microsoft Repositories for Q#
+
+| Repo | What can I find here? |
+| --- | --- |
+| [Q# Documentation](https://github.com/microsoftdocs/quantum-docs-pr) | Official Q# documentation at [docs.microsoft.com/quantum](https://docs.microsoft.com/quantum) |
+| [Quantum Libraries](https://github.com/Microsoft/QuantumLibraries)   | Q# libraries for the Quantum Development Kit.                                                 |
+| [Quantum](https://github.com/Microsoft/Quantum)                      | Microsoft Quantum Development Kit Samples                                                     |
+| [QuantumKatas](https://github.com/Microsoft/QuantumKatas)            | Programming exercises for learning Q# and quantum computing                                   |
+| [Quantum-NC](https://github.com/Microsoft/Quantum-NC)                | Microsoft Quantum Computing Libraries for noncommercial use                                   |
+| [qsharp.sty](https://github.com/msr-quarc/qsharp.sty/)               | LaTeX syntax highlighting for Q#
+
+**Other related Microsoft Quantum repositories**
+
+| Repo | What can I find here? |
+| --- | --- |
+| [MLADS2018-QuantumML](https://github.com/microsoft/MLADS2018-QuantumML)                     | Introduction to Quantum Machine Learning workshop                                         |
+| [GHC18-IntroToQuantumComputing](https://github.com/microsoft/GHC18-IntroToQuantumComputing) | 2018 Grace Hopper Celebration Workshop materials                                          |
+| [Qubit Modeling Tools](https://github.com/microsoft/qmt)                                    | Automation for the setup of complex geometries appropriate for physical qubit simulations |
+
+### Further Q# Community Resources
+
+#### Awesome Lists
+- [Awesome Q#](https://project-awesome.org/ebraminio/awesome-qsharp)
 
 #### Talks and Videos
 - [Quantum Computing for Computer Scientists](https://speakerdeck.com/ahelwer/quantum-computing-for-computer-scientists), Andrew Helwer (Microsoft)
@@ -27,6 +54,3 @@ Our community uses the [Contributor Covenent](https://www.contributor-covenant.o
 
 #### Online Courses
 - [Quantum Computing](https://brilliant.org/courses/quantum-computing/) by Brilliant
-
-#### More Community Lists
-- [Awesome Q#](https://project-awesome.org/ebraminio/awesome-qsharp)
