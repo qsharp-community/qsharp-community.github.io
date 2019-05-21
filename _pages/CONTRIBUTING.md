@@ -1,15 +1,7 @@
 ---
-defaults:
-  # _pages
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: single
-   permalink: /contributions/
+permalink: /contributing/
+title: Contributing to Q# Community
 ---
-
-# Contributing to Q# Community
 
 This community encourages feedback and contributions.
 Thank you for your interest in making the Q# Community better!
@@ -17,7 +9,17 @@ There are several ways you can get involved.
 
 ## Adding a new repository to the community
 
-TODO: finish content for this process
+Are you someone who has a project they want to contribute to the Q# community organization?
+There are a few main benefits to doing so:
+
+- Make it easier for new contributors to find your project 🎉
+- Crowd source maintaining and developing with others familiar with Q#
+
+### Steps to add a new project
+1. Send an email introducing you and your project to [projects@qsharp.community](mailto:projects@qsharp.community) (with a link to the current repo if possible) for the organization maintainers to review. 
+2. Then at least two maintainers will review the project to make sure it is a good fit. We strive to get feedback on this in a timely manner.
+3. If the project is a good fit, next is to start a new repo or transfer the ownership of the previous repo to the organization. Any original contributors will be made admin on the repo under the org and if the licence is [OSI approved](https://opensource.org/licenses), it can maintain all original licensing.
+4. 🎊**Party!**🎉 Now if you like you can write a blog post about your project and we can host/cross-post it to our site here so people can read first hand from you about your project! Also consider publishing your work to Nuget or Myget!
 
 ### Licencing repositories in the community organization
 
@@ -58,7 +60,7 @@ Some general guidelines:
 The Q# language has a [style guide](https://docs.microsoft.com/en-us/quantum/contributing/style-guide?view=qsharp-preview), please use this for Q# code projects.
 For projects that involve other languages, please use consistent styling.
 
-### Testing
+### Testing and Packaging
 
 Your change should include tests to verify new functionality wherever possible.
 > Coming Soon: instructions on how to setup Azure DevOps pipelines for Q# projects

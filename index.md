@@ -1,4 +1,6 @@
-## Welcome to the Q# Community!
+---
+title: Welcome to the Q# Community!
+---
 
 [![Gitter](https://badges.gitter.im/qsharp-community/community.svg)](https://gitter.im/qsharp-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 

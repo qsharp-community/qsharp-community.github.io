@@ -7,3 +7,12 @@ toc: true
 logo: /media/qsharp-comm-logo.png
 title: Q# Community
 description: A space for community-driven projects and contrib libraries for Q#
+
+defaults:
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
