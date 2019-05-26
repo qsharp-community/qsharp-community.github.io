@@ -1,12 +1,5 @@
----
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
-author_profile: false
-title: Welcome to the Q# Community!
-permalink: /
----
+# Welcome to the Q# Community!
+
 [![Gitter](https://badges.gitter.im/qsharp-community/community.svg)](https://gitter.im/qsharp-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 This group represents a bunch of folks that are excited about quantum programming with the Q# language 😊

@@ -1,6 +1,6 @@
 ---
 permalink: /about/
-title: What is this Q# Community?
+title: "About"
 ---
 
-
+Content coming soon! 😊

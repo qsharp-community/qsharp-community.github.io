@@ -1,9 +1,9 @@
-  main:
+main:
+  - title: "Home"
+    url: /
   - title: "About"
     url: /about/
-  - title: "Contribution Guide"
+  - title: "Contributing"
     url: /contributing/
-  - title: "Blog"
-    url: /blog/
-  - title: "Source for this website"
-    url: https://github.com/qsharp-community/qsharp-community.github.io
+  - title: "Community Blog"
+    url: /posts/
