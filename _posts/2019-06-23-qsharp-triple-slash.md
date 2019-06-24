@@ -43,7 +43,7 @@ It automatically starts up with Visual Studio, and will activate as soon as you 
 C# generator so there's nothing new to learn. For example, typing a line with three forward-slashes above a Q# operation or function will
 automatically produce the comment stub:
 
-![alt text](images/qsharptripleslash-3.gif "QSharpTripleSlash comment example")
+![QSharpTripleSlash comment example](images/qsharptripleslash-3.gif "QSharpTripleSlash comment example")
 
 It can also create a small stub with a `# Summary` section for newtype declarations.
 
