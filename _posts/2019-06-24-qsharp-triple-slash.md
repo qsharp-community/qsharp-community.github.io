@@ -1,5 +1,6 @@
 ---
 title: "Autogenerating Documentation Comments for Q# in Visual Studio"
+author: jclapis
 date: 2019-06-24T09:22-06:00
 categories:
   - blog

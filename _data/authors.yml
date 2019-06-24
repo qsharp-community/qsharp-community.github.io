@@ -1,0 +1,10 @@
+# /_data/authors.yml
+
+jclapis:
+    name        : "Joe Clapis"
+    bio         : "Software engineering lead with the MITRE Corporation, bridging quantum computing and classical software engineers."
+    avatar      : "https://avatars3.githubusercontent.com/u/627896?s=460&v=4"
+    links:
+      - label: "Email"
+        icon: "fas fa-fw fa-envelope-square"
+        url: "mailto:jclapis@mitre.org"
