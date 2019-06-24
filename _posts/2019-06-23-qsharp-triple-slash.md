@@ -1,4 +1,13 @@
-# Autogenerating Documentation Comments for Q# in Visual Studio
+---
+title: "Autogenerating Documentation Comments for Q# in Visual Studio"
+date: 2019-06-24T09:22-06:00
+categories:
+  - blog
+tags:
+  - contributed-post
+  - visual-studio
+  - documentation
+---
 
 My name is Joe Clapis, and I've been a professional software engineer for about 10 years. For conventional projects in C#, C++, and
 Python, Visual Studio is my IDE of choice. I like it because it offers a lot of utility that makes it fast and easy to write
