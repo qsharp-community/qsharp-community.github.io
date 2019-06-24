@@ -53,7 +53,7 @@ forward-slashes.
 Finally, starting a triple-slash comment line with the `#` character will bring up an autocomplete menu with Q#'s supported Markdown
 headers, just like C#'s autocomplete:
 
-![alt text](images/qsharptripleslash-4.jpg "QSharpTripleSlash autocomplete example")
+![QSharpTripleSlash autocomplete example](images/qsharptripleslash-4.jpg "QSharpTripleSlash autocomplete example")
 
 I've bundled a config file with it that lets you change various attributes, such as the number of empty lines that the extension adds
 between sections or input parameter subsections when it generates the stub. 
