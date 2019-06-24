@@ -6,7 +6,7 @@ high-quality code. As an example, good code should include extensive documentati
 comments baked into its spec, and Visual Studio can automatically create documentation stubs for you when you type three forward slashes
 above a function:
 
-![alt text](images/qsharptripleslash-1.jpg "C# comment example")
+![C# comment example](images/qsharptripleslash-1.jpg "C# comment example")
 
 The comment generator uses the C# parser to figure out what the names of your function's parameters are, and conveniently includes
 properly-named sections for each of them in the XML comment. It also provides autocomplete support for additional tags you may want
