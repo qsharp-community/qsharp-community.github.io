@@ -12,7 +12,7 @@ The comment generator uses the C# parser to figure out what the names of your fu
 properly-named sections for each of them in the XML comment. It also provides autocomplete support for additional tags you may want
 to add, which it shows as soon as you start a comment line with the `<` character:
 
-![alt text](images/qsharptripleslash-2.jpg "C# autocomplete example")
+![C# autocomplete example](images/qsharptripleslash-2.jpg "C# autocomplete example")
 
 Though automatically generating comment stubs may not seem like a particularly important feature, I can assure you that manually writing
 all of that XML by hand is a nuisance - especially for large functions with lots of parameters. Visual Studio's automatic stub
