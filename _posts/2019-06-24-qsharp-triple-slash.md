@@ -16,13 +16,13 @@ high-quality code. As an example, good code should include extensive documentati
 comments baked into its spec, and Visual Studio can automatically create documentation stubs for you when you type three forward slashes
 above a function:
 
-![C# comment example](images/qsharptripleslash-1.jpg "C# comment example")
+![C# comment example](/assets/images/qsharptripleslash-1.jpg "C# comment example")
 
 The comment generator uses the C# parser to figure out what the names of your function's parameters are, and conveniently includes
 properly-named sections for each of them in the XML comment. It also provides autocomplete support for additional tags you may want
 to add, which it shows as soon as you start a comment line with the `<` character:
 
-![C# autocomplete example](images/qsharptripleslash-2.jpg "C# autocomplete example")
+![C# autocomplete example](/assets/images/qsharptripleslash-2.jpg "C# autocomplete example")
 
 Though automatically generating comment stubs may not seem like a particularly important feature, I can assure you that manually writing
 all of that XML by hand is a nuisance - especially for large functions with lots of parameters. Visual Studio's automatic stub
@@ -53,7 +53,7 @@ It automatically starts up with Visual Studio, and will activate as soon as you 
 C# generator so there's nothing new to learn. For example, typing a line with three forward-slashes above a Q# operation or function will
 automatically produce the comment stub:
 
-![QSharpTripleSlash comment example](images/qsharptripleslash-3.gif "QSharpTripleSlash comment example")
+![QSharpTripleSlash comment example](/assets/images/qsharptripleslash-3.gif "QSharpTripleSlash comment example")
 
 It can also create a small stub with a `# Summary` section for newtype declarations.
 
@@ -63,7 +63,7 @@ forward-slashes.
 Finally, starting a triple-slash comment line with the `#` character will bring up an autocomplete menu with Q#'s supported Markdown
 headers, just like C#'s autocomplete:
 
-![QSharpTripleSlash autocomplete example](images/qsharptripleslash-4.jpg "QSharpTripleSlash autocomplete example")
+![QSharpTripleSlash autocomplete example](/assets/images/qsharptripleslash-4.jpg "QSharpTripleSlash autocomplete example")
 
 I've bundled a config file with it that lets you change various attributes, such as the number of empty lines that the extension adds
 between sections or input parameter subsections when it generates the stub. 
