@@ -70,3 +70,8 @@ between sections or input parameter subsections when it generates the stub.
 
 If you're a Q# developer, consider giving it a try. It's very low overhead and totally free. Hopefully, it will make your life a little
 bit easier while documenting your Q# code.
+
+*Approved for Public Release; Distribution Unlimited. Public Release Case Number 19-2197.
+The author’s affiliation with The MITRE Corporation is provided for identification purposes only and is not intended to convey or imply
+MITRE’s concurrence with, or support for, the positions, opinions or viewpoints expressed by the author.
+© 2019 The MITRE Corporation. All Rights Reserved.*
