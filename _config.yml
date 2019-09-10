@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   A space for community-driven projects and contrib libraries for Q#
 twitter_username: QSharpCommunity
 github_username: qsharp-community
-minimal_mistakes_skin: contrast
+minimal_mistakes_skin: air
 search: true
 
 # Build settings
