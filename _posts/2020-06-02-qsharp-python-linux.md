@@ -83,7 +83,7 @@ Now that the `dotnet` command knows where to find our tools, we should be golden
 
 ![Trying again now that dotnet is properly](/assets/images/qsharp-linux-python-first-solution.png "Trying again now that dotnet is properly on our path.")
 
-Even when I ran with`sudo`, I ended up with the same error as before! Let's go back to:
+Even when I ran with`sudo`, I ended up with the same error as before! Let's look at that error message again:
 
 ```
 ➜ dotnet iqsharp install
