@@ -15,7 +15,8 @@ I'm Olivia, I'm a quantum computing researcher at <a href="https://www.triumf.ca
 
 I recently got started with the QDK to contribute to development of a new library for Q# about  <a href="https://github.com/qsharp-community/qram" target="_blank">quantum RAM</a>. However, I ran into a few issues during the installation process. Turns out they were easily fixable, but I had to slightly tweak the commands from the installation guide and the sequence of tweaks is not written in full anywhere. One of our goals for developing the qRAM library is to fully document the process, to help others develop libraries of their own. So here I've compiled everything together for the next person who might run into similar issues.
 
-Thanks to Chris Granade and Sarah Kaiser for helping me debug!
+Thanks to [Chris Granade](https://www.cgranade.com/) and [Sarah Kaiser](https://www.sckaiser.com/) for helping me debug!
+
 
 ------------------
 
@@ -100,4 +101,3 @@ The solution then is to use the `--user` flag:
 ![We did it!](/assets/images/qsharp-linux-python-final-solution.png "We did it!") 
 
 With that, you should be able to run `import qsharp` in Python, and you're ready to go! 
-
