@@ -1,6 +1,6 @@
 ---
 title: "Call for community contributions!"
-date: 2019-05-25T17:30:30-06:00
+date: 2020-06-01T00:00:00-06:00
 categories:
   - blog
 tags:
