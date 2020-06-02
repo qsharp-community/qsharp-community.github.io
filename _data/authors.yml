@@ -8,3 +8,12 @@ jclapis:
       - label: "Email"
         icon: "fas fa-fw fa-envelope-square"
         url: "mailto:jclapis@mitre.org"
+
+glassnotes:
+    name        : "Olivia Di Matteo"
+    bio         : "Quantum Information Science Associate at TRIUMF"
+    avatar      : "https://avatars2.githubusercontent.com/u/2068515?s=460&u=ade5316f8967dc3b898ccd7e02359207ede3099e&v=4"
+    links:
+      - label: "Email"
+        icon: "fas fa-fw fa-envelope-square"
+        url: "mailto:odimatteo@triumf.ca"
