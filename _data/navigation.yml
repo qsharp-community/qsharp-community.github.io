@@ -1,9 +1,11 @@
 main:
-  - title: "Home"
-    url: /
   - title: "About"
     url: /about/
-  - title: "Contributing"
-    url: /contributing/
+  - title: "Projects"
+    url: /projects/
   - title: "Community Blog"
     url: /posts/
+  - title: "Resources"
+    url: /resources/
+  - title: "Contribute"
+    url: /contributing/

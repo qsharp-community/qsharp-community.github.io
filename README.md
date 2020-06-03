@@ -7,7 +7,7 @@ The goal of this group is to collect projects containing or related to the Q# pr
 ## Q# Community Resources
 _Please make a [pull request](https://help.github.com/en/articles/creating-a-pull-request) if you have any suggestions!_
 
-### [🎉 Q# Community Blog 🎉](/posts/)
+### [🎉 Q# Community Blog 🎉](https://qsharp.community/posts/)
 
 ### Talks and Videos
 - [Programming quantum computers in .NET using Microsoft Q#](https://www.youtube.com/watch?v=qOg6weW-IDo), Rolf Huisman (Info Support)
@@ -41,7 +41,3 @@ _Please make a [pull request](https://help.github.com/en/articles/creating-a-pul
 | [QuantumKatas](https://github.com/Microsoft/QuantumKatas)            | Programming exercises for learning Q# and quantum computing                                   |
 | [Quantum-NC](https://github.com/Microsoft/Quantum-NC)                | Microsoft Quantum Computing Libraries for noncommercial use                                   |
 | [qsharp.sty](https://github.com/msr-quarc/qsharp.sty/)               | LaTeX syntax highlighting for Q#
-| --- | --- |
-| [MLADS2018-QuantumML](https://github.com/microsoft/MLADS2018-QuantumML)                     | Introduction to Quantum Machine Learning workshop                                         |
-| [GHC18-IntroToQuantumComputing](https://github.com/microsoft/GHC18-IntroToQuantumComputing) | 2018 Grace Hopper Celebration Workshop materials                                          |
-| [Qubit Modeling Tools](https://github.com/microsoft/qmt)                                    | Automation for the setup of complex geometries appropriate for physical qubit simulations |
