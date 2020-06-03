@@ -1,0 +1,25 @@
+---
+layout: archive
+author_profile: false
+title: Welcome to the Q# Community!
+permalink: /
+toc: false
+---
+<h1>Welcome!</h1>
+This group collects + maintains projects related to the Q# programming language by a community of folks who are excited about quantum programming! 😊
+<br>
+<a href="https://gitter.im/qsharp-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/qsharp-community/community.svg" title="gitter-badge" /></a>
+<br>
+
+<h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Community Posts" }}</h2>
+
+{% for post in paginator.posts %}
+  {% include archive-single.html %}
+{% endfor %}
+
+{% include paginator.html %}
+
+<h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Featured Community Projects" }}</h2>
+
+{% include feature_row %}
+
