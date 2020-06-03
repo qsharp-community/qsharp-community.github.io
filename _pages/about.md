@@ -3,13 +3,13 @@ permalink: /about/
 title: "About"
 ---
 
-The goal of this group is to collect projects containing or related to the Q# programming language by a bunch of folks that are excited about quantum programming.
+This group collects + maintains projects related to the Q# programming language by a community of folks who are excited about quantum programming!
 The types of content hosted here are (but are not limited to):
 
 - New community libraries for Q#
 - Tutorial or workshop materials featuring Q# code
 - Extensions to the Q# language itself that need some testing before being added to official repositories
-- Blog posts on cool Q# projects
+- Blog posts on cool Q# projects or documenting how you use the QKD
 
 If you want to learn more about the process of adding a project to [qsharp-community](https://qsharp.community), please see our [community contribution guide](./_pages/CONTRIBUTING.md).
 

@@ -1,8 +1,9 @@
 ---
 permalink: /resources/
 title: "Q# Community Resources"
+toc: true
 ---
-Please make a [pull request](https://help.github.com/en/articles/creating-a-pull-request) if you have any suggestions!
+Please make a [pull request](https://help.github.com/en/articles/creating-a-pull-request) on the repo for [this webpage](https://github.com/qsharp-community) if you have any suggestions for resources to add to this page!
 {: .notice--info}
 
 ## Talks and Videos
@@ -20,7 +21,57 @@ Please make a [pull request](https://help.github.com/en/articles/creating-a-pull
 ## Awesome Lists
 - [Awesome Q#](https://project-awesome.org/ebraminio/awesome-qsharp)
 
-## Other Microsoft repos/projects
+
+<h2> Official Microsoft Repositories for Q# </h2>
+
+<blockquote>
+ Don't know where to start contributing?
+ Check out good first issues on open source Q# with a <a href="https://www.npmjs.com/package/good-first-issue">node command line tool</a> that lists good first issues!
+<br>
+<pre><code>$ npx good-first-issue quantum-development-kit</code></pre>
+</blockquote>
+
+<table>
+  <tr>
+      <th>Repo</th>
+      <th>What can I find here?</th>
+  </tr>
+  <tr>
+      <td><a href="https://github.com/microsoftdocs/quantum-docs-pr">Q# Docs</a></td>
+      <td>Official Q# documentation at [docs.microsoft.com/quantum](https://docs.microsoft.com/quantum)</td>
+  </tr>
+  <tr>
+      <td><a href="https://github.com/Microsoft/Quantum">Q# Samples</a></td>
+      <td>Microsoft Quantum Development Kit Samples</td>
+  </tr>
+  <tr>
+      <td><a href="https://github.com/Microsoft/QuantumLibraries">Q# Libraries</a></td>
+      <td>Q# libraries for the Quantum Development Kit.</td>
+  </tr>
+  <tr>
+      <td><a href="https://github.com/microsoft/qsharp-compiler">Q# Compiler</a></td>
+      <td>Q# compiler for the Quantum Development Kit.</td>
+  </tr>
+  <tr>
+      <td><a href="https://github.com/microsoft/qsharp-runtime">Q# Runtime</a></td>
+      <td>Q# runtime components for the Quantum Development Kit.</td>
+  </tr>
+  <tr>
+      <td><a href="https://github.com/Microsoft/QuantumKatas">QuantumKatas</a></td>
+      <td>Programming exercises for learning Q# and quantum computing</td>
+  </tr>
+  <tr>
+      <td><a href="https://github.com/Microsoft/Quantum-NC">Quantum-NC</a></td>
+      <td>Microsoft Quantum Computing Libraries for noncommercial use</td>
+  </tr>
+  <tr>
+      <td><a href="https://github.com/msr-quarc/qsharp.sty/">qsharp.sty</a></td>
+      <td>LaTeX syntax highlighting for Q#</td>
+  </tr>
+</table>
+
+
+## Related Microsoft Projects
 
 | Repo | What can I find here? |
 | --- | --- |
