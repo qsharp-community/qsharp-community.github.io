@@ -20,13 +20,20 @@ If you worked through any of the older Q# documentation or tutorials, you are su
 
 The new `@EntryPoint()` feature shipped in QDK 0.11.2004.2825, which was released on [30 April 2020](https://docs.microsoft.com/en-us/quantum/relnotes/), and finally allows us Q# developers to create fully standalone Q# programs, greatly simplifying the way we work with the language and its quantum runtime. Q# developers can now use the `@EntryPoint()` attribute to annotate a relevant `operation` or `function` as the method that gets executed upon application start up.
 
-Once such Q# program with an `@EntryPoint()` is compiled, the console application can be invoked using the [dotnet SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1):
+Once such Q# program with an `@EntryPoint()` is prepared, the console application can be invoked using the [dotnet SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1):
 
 ```
+dotnet run
+```
+
+This command will compile the Q# code, and invoke it immediately. You could also precompile the program DLL first, and then you invoke it directly, also without needing the Q# source code anymore:
+
+```
+dotnet build // created your application's DLL, such as MyProgram.dll
 dotnet MyProgram.dll
 ```
 
-The quantum templates that can be used to quickly generate new programs, and which are also part of the QDK, have already been updated to take advantage of the new feature. Now, creating a new standalone Q# application doesn't create a separate non-Q# host program anymore, but instead leverages the `@EntryPoint()` feature. A most basic example of a Q# program, with a Q# operation that happens to be used as the executable entry point is shown below.
+QDK also ships with application templates that can be used to quickly generate new programs from the command line, Visual Stuido and Visual Studio Code. Those templates have already been updated to take advantage of the new entry point feature - now, creating a new standalone Q# application doesn't create a separate non-Q# host program anymore, but instead leverages the `@EntryPoint()` attribute. A most basic example of a Q# program, with a Q# operation that happens to be used as the executable entry point is shown below.
 
 ```
 namespace MyProgram {
@@ -37,7 +44,7 @@ namespace MyProgram {
 }
 ```
 
-The entry point feature is - naturally - only available to console applications, and not to Q# libraries. Therefore, the `csproj` project file of your program, needs to have a corresponding `<OutputType>Exe</OutputType>` entry in it:
+The entry point attribute can only be used in console applications - it is not allowed to delcare an entry point inside Q# libraries. Therefore, the `csproj` project file of your program, needs to have a corresponding `<OutputType>Exe</OutputType>` entry in it:
 
 ```
 <Project Sdk="Microsoft.Quantum.Sdk/0.11.2006.403">
@@ -50,7 +57,7 @@ The entry point feature is - naturally - only available to console applications,
 </Project>
 ```
 
-If it was to be missing, then the compiler would throw a build error indicating that libraries cannot have entry points.
+If it was missing, then the compiler would end up using the default value (`<OutputType>Library</OutputType>`) and would throw a build error indicating that libraries cannot have entry points.
 
 ### Passing arguments into a Q# console application
 
@@ -78,9 +85,10 @@ namespace MyProgram {
 }
 ```
 
-In the snippet above, the Q# application will accept command three line arguments, the names of which correspond to the ones declared in code. We can then invoke such application using, the following command line syntax:
+In the snippet above, the Q# application will accept command three line arguments, the names of which correspond to the ones declared in code. We can then invoke such application using one of the following command line syntaxes:
 
 ```
+dotnet run -- --number 100 --text foo --flag true
 dotnet MyProgram.dll --number 100 --text foo --flag true
 ```
 
@@ -90,6 +98,8 @@ Aside from the three example types used in the sample above, other types that ar
 
 One more interesting aspect of the feature that's worth mentioning, is that if an argument on your entry point operation or function is using a camel case name - for example `operation Start(importantEntries : String[]) : Unit`, then the generated corresponding command line argument would be converted into kebab case - `important-entries`. That's because typically command line applications use kebab case over camel case argument naming schemes.
 
+### Under the hood
+
 Overall, this excellent functionality is achieved because the Q# runtime is now actually shipping with [System.CommandLine](https://github.com/dotnet/command-line-api) library, which is used to provide binding and conversion of arguments. Under the hood, the compiled .NET Core assembly actually contains a dynamically generated application entry point that satisfies the CoreCLR entry point requirements and a "driver" type functionality, not much different from the one that previously needed to be rolled out by the developer by hand. The dynamically generated type is named with the esoteric `__QsEntryPoint__` name and it has a generic console application entry point signature of `private static async Task<int> Main(string[] args)`. Those generic arguments are then parsed and converted to the appropriate arguments required by the Q# operation or function which was marked to be the entry point by the developer. All of that machinery, however, is nicely hidden away from the developer and normally we do not worry about how all of these things are glued together. However, if you feel like looking under the hood, I really recommend to check out the main PR responsible for bringing this feature into Q#, from Sarah Marshall - it can be found [here](https://github.com/microsoft/qsharp-runtime/pull/169/files).
 
 ### Automatic documentation and `--help` generation
@@ -97,6 +107,9 @@ Overall, this excellent functionality is achieved because the Q# runtime is now 
 Q# console applications have another excellent feature to them - also related to the usage of `System.CommandLine` library - and that's automatic help generation for the Q# console application. Each compiled application automatically gets three built-in arguments `-?, -h, --help` which can be used to display the application's help. The help includes documentation about all the typed arguments our entry point operation or function exposes. As users, we simply need call one of the following:
 
 ```
+dotnet run -- -?
+dotnet run -- -h
+dotnet run -- --help
 dotnet MyProgram.dll -?
 dotnet MyProgram.dll -h
 dotnet MyProgram.dll --help 
