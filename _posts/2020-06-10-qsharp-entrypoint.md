@@ -183,4 +183,4 @@ The entry point validation is also already integrated into the Q# compiler. The 
 
 The ability to create standalone Q# programs is an excellent addition to the Q# language landscape. It is a sign of the maturing Q# application runtime, drastically simplifies working with the language and removes barriers of entry for newcomers.
 
-These self contained Q# applications are also going to be supported in Azure Quantum, which is an even more exciting piece of news, emphasizing the important role of this approach to building Q# quantum programs.
+These self contained Q# applications are also going to be supported in [Azure Quantum](https://azure.microsoft.com/en-us/services/quantum/), which is an even more exciting piece of news, emphasizing the important role of this approach to building Q# quantum programs.
