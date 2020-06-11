@@ -44,7 +44,7 @@ namespace MyProgram {
 }
 ```
 
-The entry point attribute can only be used in console applications - it is not allowed to delcare an entry point inside Q# libraries. Therefore, the `csproj` project file of your program, needs to have a corresponding `<OutputType>Exe</OutputType>` entry in it:
+The entry point attribute can only be used in console applications - it is not allowed to declare an entry point inside Q# libraries. Therefore, the `csproj` project file of your program, needs to have a corresponding `<OutputType>Exe</OutputType>` entry in it:
 
 ```
 <Project Sdk="Microsoft.Quantum.Sdk/0.11.2006.403">
