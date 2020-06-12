@@ -17,3 +17,12 @@ glassnotes:
       - label: "Email"
         icon: "fas fa-fw fa-envelope-square"
         url: "mailto:odimatteo@triumf.ca"
+        
+filipw:
+    name        : "Filip W"
+    bio         : "Tech Lead Cloud Services, Research & Development, at Sonova AG"
+    avatar      : "https://avatars3.githubusercontent.com/u/1710369?s=460&v=4"
+    links:
+      - label: "Email"
+        icon: "fas fa-fw fa-envelope-square"
+        url: "mailto:wojcieszyn@gmail.com"
