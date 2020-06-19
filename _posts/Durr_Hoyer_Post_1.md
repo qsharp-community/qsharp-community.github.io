@@ -8,21 +8,21 @@ tags:
   - algorithm
   - open source
 ---
-## Durr Hoyer
+### Durr Hoyer
 
 Hello all! My name is Mridul Sarkar. I am an undergraduate at University of California Davis studying Scientific and Mathematical Computation. I began my journey from math to computers through my passion for ML algorithms. Eventually I stumbled upon quantum computing. I was instantly pulled in by the elegant algorithms and proposed effeciency. 
 
 
 
-## Background
+### Background
 Recently I began working on an open source Durr Hoyer library. This project has pushed me and is still pushing me outside of my comfort zone. Learning Q# while slowly refining my quantum mechanics has been a rewarding experience. I would like to pass on what I have learnt in that time while looking for feedback. I will likely be posting about this algorithm more as it continues developing.
 
 
-## Motivation
+### Motivation
 The motivation behind this project is to provide open source functionality. The effeciency that is proposed by this algorithm is Big-O = square root of the number of items in the table. Durr and Hoyer proposes an ensemble of quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. This success rate is bounded by the Big-O. If we decide to alleviate this Big-O, which I will explain in detail later, the probability of finding the minimum increases. 
 
 
-## The Algorithm
+### The Algorithm
 A brief introduction to the Durr and Hoyer Algorithm can be derived from the Quantum Minimum Searching Algorithm outlined in 'A quantum algorithm for finding the minimum' [(1)]: 
 
 Durr and Hoyer propose a computationally effecient routine to find the minimum of a table of distinct unsorted integers. The algorithm is as follow:
@@ -31,7 +31,7 @@ Durr and Hoyer propose a computationally effecient routine to find the minimum o
 ![QMSA](/assets/images//DurrHoyer-QMSA.JPG "QMSA")
 
 
-### Psuedocode
+#### Psuedocode
 
 ```
     t = table.flatten()
@@ -58,11 +58,11 @@ Durr and Hoyer propose a computationally effecient routine to find the minimum o
 ------------------
 
 It is easy to undestand the conceptual implementation in python. It is important to note steps:
-## (a..b)
+### (a,b)
 
 ------------------
 
-### (a)
+#### (a)
 Part a is probably the most interesting part of this algorithm from my perspective. After a brief chat with Dr. Hoyer I realized this aspect of the algorithm is a field of research in itself. The creation of qubits from a table of unique integers is an intersting question. An even more interesting question is if we create a function to map values onto integers and must ponder how to create a state of qubits to capture this classical data. 
 
 For now, the more prevelant question is what sort of intializiation we can use to verify the integrity and effeciency of this algorithm. My most immediate thought is entangle all the qubits and set them as unique basis. The classical value of the integer is not represented here, only the index of the integer is caputred at a quantum level on the table assuming an input dataytpe of BigEndian. If the goal is to test the algorithm's probablistic integrity this plan of action will suffice.
@@ -75,7 +75,7 @@ In order to mark the indices we simply mark all indices that come before i.
 
 ------------------
 
-### (b)
+#### (b)
 Part b must be understood through another paper 'Tight bounds on quantum searching' [(2)]. It details the use of the quantum exponential searching algorithm in three cases. Those three cases being: finding one solution, multiple solutions, or an unknown number of solutions. For each case there is different prepration of qubits and algorithms used in unison to find the solution(s). The Durr Hoyer Algorithm is supposed to push the computational effeciency versus computational accuracy. The statement earlier mentioning the 50% success rate for finding the minimum is bounded by the Big-O can be explored further now. [3]
 
 It is intuituve to see that in the case for finding a minimum of an unsorted table is finding one unique solution. The details are mentioned under "Implementation Considerations".
@@ -92,7 +92,7 @@ Generalizations are a mathematicians greatest friend, but a downfall if not impl
 
 ------------------
 
-# Conclusion
+### Conclusion
 
 So far I have been greatly enjoying throwing myself into this new and exciting world of quantum computing. I am constantly in search for collaboration among those who are equally as passionate about quantum computing. If you had any suggestions or questions feel free to send me an email at msarkar at ucdavis dot edu. 
 
