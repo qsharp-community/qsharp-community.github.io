@@ -15,11 +15,11 @@ Hello all! My name is Mridul Sarkar. I am an undergraduate at University of Cali
 
 
 ### Background
-Recently I began working on an open source Durr Hoyer library. This project has pushed me and is still pushing me outside of my comfort zone. Learning Q# while slowly refining my quantum mechanics has been a rewarding experience. I would like to pass on what I have learnt in that time while looking for feedback. I will likely be posting about this algorithm more as it continues developing.
+Recently I began working on quantum computing with an idea to treat nodes of neural networks as qubits. From here I took a deep dive into the research papers and found myself amazed by the research being produced. I began with a Coursera course from St. Petersburge University on quantum computing with detail on Duestchs, Shors, and Grovers algorithms. From here I tinkered with Q# and developed basic algorithms that I learnt from Coursera. I found Durr Hoyer and saw it as an ensemble of Duestchs, Shors, and Grovers Algorithm; a perfect stepping stone coming from my background. This project has pushed me and is still pushing me outside of my comfort zone. Learning Q# while slowly refining my quantum mechanics has been a rewarding experience. I would like to pass on what I have seen and understood in that time while open to feedback. I will likely be posting about this algorithm more as it continues developing and I learn more.
 
 
 ### Motivation
-The motivation behind this project is to provide open source functionality. The effeciency that is proposed by this algorithm is Big-O = square root of the number of items in the table. Durr and Hoyer proposes an ensemble of quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. This success rate is bounded by the Big-O. If we decide to alleviate this Big-O, which I will explain in detail later, the probability of finding the minimum increases. 
+The motivation behind this project is to provide open source functionality. The effeciency that is proposed by this algorithm is Big-O = square root of the number of items in the table. Durr and Hoyer proposes an ensemble of quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. This success rate is bounded by the Big-O. If we decide to alleviate this Big-O the probability of finding the minimum increases. With this comes some complexity in the innnworkings of the library which will be explained when analyzing the algorithm. In order for this library to be used properly it must meet some guidelines. At the moment I am referencing the amazing template given by Dr. Sarah Kaiser https://github.com/crazy4pi314/qsharp-library-template in order to make this library usable in Q#. I am programming the algorithm in Q# with a python shell. The python shell will be provided below. The circuit's gates will be analyzed but there is no code because it is still buggy :laughing: .
 
 
 ### The Algorithm
@@ -38,7 +38,7 @@ Durr and Hoyer propose a computationally effecient routine to find the minimum o
     N = len(t)
     y = randomuniform[1..N] #N is a integer
     time_limit = (22.5*sqrt(N)=1.4*log(N)^2)
-    qq = preprocess.simulate(t,y')
+    q = preprocess.simulate(t,y)
 
     while time.clock() < time_limit:
         for i in range(N):
@@ -63,11 +63,11 @@ It is easy to undestand the conceptual implementation in python. It is important
 ------------------
 
 #### (a)
-Part a is probably the most interesting part of this algorithm from my perspective. After a brief chat with Dr. Hoyer I realized this aspect of the algorithm is a field of research in itself. The creation of qubits from a table of unique integers is an intersting question. An even more interesting question is if we create a function to map values onto integers and must ponder how to create a state of qubits to capture this classical data. 
+Part a is probably the most interesting part of this algorithm from my perspective. After a brief chat with Dr. Hoyer I realized this aspect of the algorithm is a field of research in itself. The creation of qubits from a table of unique integers is an intersting question. An even more interesting question is if we create a function to map values onto integers and must ponder how to create a state of qubits to capture this classical data.
 
 For now, the more prevelant question is what sort of intializiation we can use to verify the integrity and effeciency of this algorithm. My most immediate thought is entangle all the qubits and set them as unique basis. The classical value of the integer is not represented here, only the index of the integer is caputred at a quantum level on the table assuming an input dataytpe of BigEndian. If the goal is to test the algorithm's probablistic integrity this plan of action will suffice.
 
-We do know that the register must be initiated as j divided by the square root of N (length of flattened table) along with a qubit for each integer and a redudant qubit, specifically being the randomly chosen y.
+We do know that the register must be initiated as i divided by the square root of N (length of flattened table) along with a qubit for each integer and a redudant qubit, specifically being the randomly chosen y.
 
 This still needs to be properely implemented as I have been wrestling with which route to take. Currently the place holder for this eventual quantum information algorithm is #preprocess.simulate() Suggestions are welcome and appreciated.
 
@@ -82,7 +82,7 @@ It is intuituve to see that in the case for finding a minimum of an unsorted tab
 
 ![Implementation](/assets/images//DurrHoyer-Implementation.JPG "Implementation")
 
-A thorough read of this will supply any calirfication to the python code posted above. It is important to note that if the table has odd elements a different form of the algorithm must be used. Being new to quantum computing I have found myself wading through darkness at times. Reading this even now leaves me a bit unsure and skeptical of my own implementation. After research and conversations with quantum computing affecionados I have reached the following conclusions:
+A thorough read of this will supply any calirfication to the python code posted above. 'G' mentioned above is the 'Algorithm' in the python psuedo code. It will take in the random value, the table in quantum information,   It is important to note that if the table has odd elements a different form of the algorithm must be used. Being new to quantum computing I have found myself wading through darkness at times. Reading this even now leaves me a bit unsure and skeptical of my own implementation, redoing my calculations. After research and conversations with quantum computing affecionados I have reached the following conclusions:
 
 1. T is just a Hadamard Gate
 2. S_A is just a CNOT Gate
@@ -100,7 +100,7 @@ So far I have been greatly enjoying throwing myself into this new and exciting w
 
 ## My current challenges in this project:
 
-1. Creating a C# test script/any test script for my circuit
+1. Test script for my circuits
 
 2. Validating generalizations I made of 'Implementation Considerations'
 
