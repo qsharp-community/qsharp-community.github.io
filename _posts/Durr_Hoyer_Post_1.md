@@ -67,7 +67,9 @@ Part a is probably the most interesting part of this algorithm from my perspecti
 
 For now, the more prevelant question is what sort of intializiation we can use to verify the integrity and effeciency of this algorithm. My most immediate thought is entangle all the qubits and set them as unique basis. The classical value of the integer is not represented here, only the index of the integer is caputred at a quantum level on the table assuming an input dataytpe of BigEndian. If the goal is to test the algorithm's probablistic integrity this plan of action will suffice.
 
-We do know that the register must be initiated as i divided by the square root of N (length of flattened table) along with a qubit for each integer and a redudant qubit, specifically being the randomly chosen y.
+The register can be intiated as follows:
+
+[latex_imp](/assets/images//latex_information.jpg)('latex information')
 
 This still needs to be properely implemented as I have been wrestling with which route to take. Currently the place holder for this eventual quantum information algorithm is #preprocess.simulate() Suggestions are welcome and appreciated.
 
