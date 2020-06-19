@@ -43,14 +43,12 @@ Durr and Hoyer propose a computationally effecient routine to find the minimum o
     while time.clock() < time_limit:
         for i in range(N):
             while t[i] < t[y]:
-                j = N-i
+                j = N-j
                 if N is even
-                    Grovers Algorithm for one step across [0...j]
-                    q=Algorithm with T[0...j] defined operator
+                    q=Algorithm with Hadamard gates[0...j]
                     y'=q[0]
                 else
-                    Grovers Algorithm for one step across [0...j]
-                    t=Algorithm with QFT instead of T[0...j]
+                    t=Algorithm with QFT instead of H[0...j]
                     y'=q[0]
         if t[y'] < t[y]:
             y = y'
@@ -73,7 +71,7 @@ We do know that the register must be initiated as j divided by the square root o
 
 This still needs to be properely implemented as I have been wrestling with which route to take. Currently the place holder for this eventual quantum information algorithm is #preprocess.simulate() Suggestions are welcome and appreciated.
 
-In order to mark the indeces as the algorithm states we must run the intialized qubits through grovers algorithm once. 
+In order to mark the indices we simply mark all indices that come before i.
 
 ------------------
 
