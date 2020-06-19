@@ -97,7 +97,7 @@ Generalizations are a mathematicians greatest friend, but a downfall if not impl
 ### Conclusion
 
 So far I have been greatly enjoying throwing myself into this new and exciting world of quantum computing. I am constantly in search for collaboration among those who are equally as passionate about quantum computing. If you had any suggestions or questions feel free to send me an email at msarkar at ucdavis dot edu. 
-
+https://github.com/mridulsar/DurrHoyerLibrary
 ------------------
 
 ## My current challenges in this project:
