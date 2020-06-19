@@ -82,7 +82,7 @@ Part b must be understood through another paper 'Tight bounds on quantum searchi
 
 It is intuituve to see that in the case for finding a minimum of an unsorted table is finding one unique solution. The details are mentioned under "Implementation Considerations".
 
-![Implementation](/assets/images/DurryHoyer-Implementation.JPG "Implementation")
+![Implementation](/assets/images//DurryHoyer-Implementation.JPG "Implementation")
 
 A thorough read of this will supply any calirfication to the python code posted above. It is important to note that if the table has odd elements a different form of the algorithm must be used. Being new to quantum computing I have found myself wading through darkness at times. Reading this even now leaves me a bit unsure and skeptical of my own implementation. After research and conversations with quantum computing affecionados I have reached the following conclusions:
 
