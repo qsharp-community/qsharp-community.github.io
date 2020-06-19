@@ -69,7 +69,7 @@ For now, the more prevelant question is what sort of intializiation we can use t
 
 The register can be intiated as follows:
 
-[latex_imp](/assets/images//latex_information.jpg)('latex information')
+[latex_imp](/assets/images//latex_information.JPG)('latex information')
 
 This still needs to be properely implemented as I have been wrestling with which route to take. Currently the place holder for this eventual quantum information algorithm is #preprocess.simulate() Suggestions are welcome and appreciated.
 
