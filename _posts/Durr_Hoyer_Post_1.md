@@ -102,9 +102,11 @@ So far I have been greatly enjoying throwing myself into this new and exciting w
 
 ## My current challenges in this project:
 
-1. Test script for my circuits
+1. Getting detailed error codes from Q#
 
 2. Validating generalizations I made of 'Implementation Considerations'
+
+3. Developing a cool quantum information algorithm to map integers to qubits.
 
 ------------------
 
