@@ -87,7 +87,7 @@ It is intuituve to see that in the case for finding a minimum of an unsorted tab
 A thorough read of this will supply any calirfication to the python code posted above. 'G' mentioned above is the 'Algorithm' in the python psuedo code. It will take in the random value, the table in quantum information,   It is important to note that if the table has odd elements a different form of the algorithm must be used. Being new to quantum computing I have found myself wading through darkness at times. Reading this even now leaves me a bit unsure and skeptical of my own implementation, redoing my calculations. After research and conversations with quantum computing affecionados I have reached the following conclusions:
 
 1. T is just a Hadamard Gate
-2. S_A is just a CNOT Gate
+2. S_A is a variation of the CNOT Gate
 3. S_0 will will change the sign of the qubit if it is in null space, otherwise it will give the same result back
 
 Generalizations are a mathematicians greatest friend, but a downfall if not implemented correctly. If anyone has any input for the generalizations I have made I will take them with open arms!
