@@ -1,6 +1,6 @@
 ---
 title: "In Progress Durr Hoyer Algorithm"
-author "mridulsar"
+date:
 categories:
   - Blog
 tags:
@@ -8,27 +8,28 @@ tags:
   - algorithm
   - open source
 ---
-# Durr Hoyer
+## Durr Hoyer
 
 Hello all! My name is Mridul Sarkar. I am an undergraduate at University of California Davis studying Scientific and Mathematical Computation. I began my journey from math to computers through my passion for ML algorithms. Eventually I stumbled upon quantum computing. I was instantly pulled in by the elegant algorithms and proposed effeciency. 
-------------------
+
 
 
 ## Background
 Recently I began working on an open source Durr Hoyer library. This project has pushed me and is still pushing me outside of my comfort zone. Learning Q# while slowly refining my quantum mechanics has been a rewarding experience. I would like to pass on what I have learnt in that time while looking for feedback. I will likely be posting about this algorithm more as it continues developing.
-------------------
+
 
 ## Motivation
 The motivation behind this project is to provide open source functionality. The effeciency that is proposed by this algorithm is Big-O = square root of the number of items in the table. Durr and Hoyer proposes an ensemble of quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. This success rate is bounded by the Big-O. If we decide to alleviate this Big-O, which I will explain in detail later, the probability of finding the minimum increases. 
-------------------
+
 
 ## The Algorithm
 A brief introduction to the Durr and Hoyer Algorithm can be derived from the Quantum Minimum Searching Algorithm outlined in 'A quantum algorithm for finding the minimum' [(1)]: 
 
 Durr and Hoyer propose a computationally effecient routine to find the minimum of a table of distinct unsorted integers. The algorithm is as follow:
 
-![alt text](QMSA.JPG)
-------------------
+
+![QMSA](/assets/images//DurrHoyer-QMSA.JPG "QMSA")
+
 
 ### Psuedocode
 
@@ -81,7 +82,7 @@ Part b must be understood through another paper 'Tight bounds on quantum searchi
 
 It is intuituve to see that in the case for finding a minimum of an unsorted table is finding one unique solution. The details are mentioned under "Implementation Considerations".
 
-![alt text](implementation.JPG)
+![Implementation](/assets/images/DurryHoyer-implementation.JPG "Implementation")
 
 A thorough read of this will supply any calirfication to the python code posted above. It is important to note that if the table has odd elements a different form of the algorithm must be used. Being new to quantum computing I have found myself wading through darkness at times. Reading this even now leaves me a bit unsure and skeptical of my own implementation. After research and conversations with quantum computing affecionados I have reached the following conclusions:
 
@@ -99,13 +100,11 @@ So far I have been greatly enjoying throwing myself into this new and exciting w
 
 ------------------
 
-### My current challenges in this project:
+## My current challenges in this project:
 
 1. Creating a C# test script/any test script for my circuit
 
 2. Validating generalizations I made of 'Implementation Considerations'
-
-3. Containerizing this project
 
 ------------------
 
