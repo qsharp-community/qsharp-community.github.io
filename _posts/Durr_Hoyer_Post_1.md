@@ -75,7 +75,7 @@ Obviously this is unachievable on current quantum comptuer architecutre. We only
  
 Luckily PrepareUniformSuperposition() in Q# does this for us easily. I have implemented it as follows:
 
-![intialize](/assests/images//intialize.JPG)
+![intialize](/assets/images//intialize.JPG)
 
 In order to mark the indices we simply mark all indices that come before i.
 
