@@ -71,8 +71,8 @@ The register can be intiated as follows:
 
 ![latex_imp](/assets/images//latex_information.JPG)('latex information')
 
-Obviously this is unachievable on current quantum comptuer architecutre. We onlyhave a qubit, the above example implies we have harness the tritbit and so on till n bit. In reality we will register all qubits as zero, engtangling them with another qubit registered as 1 representative of y.
-
+Obviously this is unachievable on current quantum comptuer architecutre. We onlyhave a qubit, the above example implies we have harness the tritbit and so on till n bit. In reality we will register all qubits as unique binary strings which will equate to their uique basis states, qubits.
+ 
 This still needs to be properely implemented as I have been wrestling with which route to take. Currently the place holder for this eventual quantum information algorithm is #preprocess.simulate() Suggestions are welcome and appreciated.
 
 In order to mark the indices we simply mark all indices that come before i.
@@ -104,11 +104,9 @@ https://github.com/mridulsar/DurrHoyerLibrary
 
 ## My current challenges in this project:
 
-1. Getting detailed error codes from Q#
+1. Validating generalizations I made of 'Implementation Considerations'
 
-2. Validating generalizations I made of 'Implementation Considerations'
-
-3. Developing a cool quantum information algorithm to map integers to qubits.
+2. Developing a cool quantum information algorithm to map integers to qubits.
 
 ------------------
 
