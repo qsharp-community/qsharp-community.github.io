@@ -1,5 +1,5 @@
 ---
-title: "In Progress Durr Hoyer Algorithm"
+title: "Durr Hoyer Algorithm (In Progress)"
 date:
 categories:
   - Blog
@@ -69,11 +69,25 @@ For now, the more prevelant question is what sort of intializiation we can use t
 
 The register can be intiated as follows:
 
-![latex_imp](/assets/images//latex_information.JPG)('latex information')
+![latex_imp](/assets/images//latex_information.JPG)
 
 Obviously this is unachievable on current quantum comptuer architecutre. We onlyhave a qubit, the above example implies we have harness the tritbit and so on till n bit. In reality we will register all qubits as unique binary strings which will equate to their uique basis states, qubits.
  
-This still needs to be properely implemented as I have been wrestling with which route to take. Currently the place holder for this eventual quantum information algorithm is #preprocess.simulate() Suggestions are welcome and appreciated.
+Luckily PrepareUniformSuperposition() in Q# does this for us easily. I have implemented it as follows:
+
+'''
+namespace preprocess {
+
+    operation proper_information(N : Int, y : Int) : Qubit[]
+        {
+            using (aux = Qubit[N])
+            {
+                PrepareUniformSuperposition(N,aux);
+                ApplytoAll(i*aux[y],aux);
+            }   
+        }
+}
+'''
 
 In order to mark the indices we simply mark all indices that come before i.
 
@@ -91,6 +105,21 @@ A thorough read of this will supply any calirfication to the python code posted 
 1. T is just a Hadamard Gate
 2. S_A is a variation of the CNOT Gate
 3. S_0 will will change the sign of the qubit if it is in null space, otherwise it will give the same result back
+
+Here is a small snippet of my current circuit:
+
+'''
+    operation Algorithm_Even(q_bitz : Qubit[] ) : Unit 
+    {
+        H(q_bitz); 
+        CNOT(q_bitz); // Place holder for ApplyConditionalPhase()
+        H(q_bitz);
+        ApplyConditionalPhase_0(q_bitz);
+
+        DumpMachine(q_bitz);
+
+    }
+'''
 
 Generalizations are a mathematicians greatest friend, but a downfall if not implemented correctly. If anyone has any input for the generalizations I have made I will take them with open arms!
 
