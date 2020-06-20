@@ -75,7 +75,7 @@ Obviously this is unachievable on current quantum comptuer architecutre. We only
  
 Luckily PrepareUniformSuperposition() in Q# does this for us easily. I have implemented it as follows:
 
-![intialize](/assests/images//intialize.jpg)
+![intialize](/assests/images//intialize.JPG)
 
 In order to mark the indices we simply mark all indices that come before i.
 
@@ -91,8 +91,8 @@ It is intuituve to see that in the case for finding a minimum of an unsorted tab
 A thorough read of this will supply any calirfication to the python code posted above. 'G' mentioned above is the 'Algorithm' in the python psuedo code. It will take in the random value, the table in quantum information,   It is important to note that if the table has odd elements a different form of the algorithm must be used. Being new to quantum computing I have found myself wading through darkness at times. Reading this even now leaves me a bit unsure and skeptical of my own implementation, redoing my calculations. After research and conversations with quantum computing affecionados I have reached the following conclusions:
 
 1. T is just a Hadamard Gate
-2. S_A is a variation of the CNOT Gate
-3. S_0 will will change the sign of the qubit if it is in null space, otherwise it will give the same result back
+2. Conditional Phase Shift on A is a variation of the CNOT Gate
+3. Conditional Phase Shift on 0 will will change the sign of the qubit if it is in null space, otherwise it will give the same result back
 
 Here is a small snippet of my current circuit:
 
