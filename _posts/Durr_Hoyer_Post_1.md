@@ -75,7 +75,7 @@ Obviously this is unachievable on current quantum comptuer architecutre. We only
  
 Luckily PrepareUniformSuperposition() in Q# does this for us easily. I have implemented it as follows:
 
-![intialize](/assests/images//intalize.jpg)
+![intialize](/assests/images//intialize.jpg)
 
 In order to mark the indices we simply mark all indices that come before i.
 
@@ -96,7 +96,7 @@ A thorough read of this will supply any calirfication to the python code posted 
 
 Here is a small snippet of my current circuit:
 
-![circuit](/assets/pages//Algorithm_Even.JPG)
+![circuit](/assets/images//Algorithm_Even.JPG)
 
 Generalizations are a mathematicians greatest friend, but a downfall if not implemented correctly. If anyone has any input for the generalizations I have made I will take them with open arms!
 
