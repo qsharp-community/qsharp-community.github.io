@@ -62,7 +62,6 @@ It is easy to understand the conceptual implementation in python. It is importan
 
 ------------------
 
-#### (a)
 ![a](/assets/images//a.JPG)   
 
 Part a is probably the most interesting part of this algorithm from my perspective. After a brief chat with Dr. Hoyer I realized this aspect of the algorithm is a field of research in itself. The creation of qubits from a table of unique integers is an interesting question. An even more interesting question is if we create a function to map values onto integers and must ponder how to create a state of qubits to capture this classical data.
@@ -83,7 +82,6 @@ In order to mark the indices we simply mark all indices that come before i.
 
 ------------------
 
-#### (b)
 ![b](/assets/images//b.JPG)   
 
 Part b must be understood through another paper 'Tight bounds on quantum searching' [(2)]. It details the use of the quantum exponential searching algorithm in three cases. Those three cases being: finding one solution, multiple solutions, or an unknown number of solutions. For each case there is different preparation of qubits and algorithms used in unison to find the solution(s). The Durr Hoyer Algorithm is supposed to push the computational efficiency versus computational accuracy. The statement earlier mentioning the 50% success rate for finding the minimum is bounded by the Big-O can be explored further now. [3]
