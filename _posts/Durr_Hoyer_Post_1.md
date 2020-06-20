@@ -75,19 +75,7 @@ Obviously this is unachievable on current quantum comptuer architecutre. We only
  
 Luckily PrepareUniformSuperposition() in Q# does this for us easily. I have implemented it as follows:
 
-'''
-namespace preprocess {
-
-    operation proper_information(N : Int, y : Int) : Qubit[]
-        {
-            using (aux = Qubit[N])
-            {
-                PrepareUniformSuperposition(N,aux);
-                ApplytoAll(i*aux[y],aux);
-            }   
-        }
-}
-'''
+![intialize](/assests/images//intalize.jpg)
 
 In order to mark the indices we simply mark all indices that come before i.
 
@@ -108,18 +96,7 @@ A thorough read of this will supply any calirfication to the python code posted 
 
 Here is a small snippet of my current circuit:
 
-'''
-    operation Algorithm_Even(q_bitz : Qubit[] ) : Unit 
-    {
-        H(q_bitz); 
-        CNOT(q_bitz); // Place holder for ApplyConditionalPhase()
-        H(q_bitz);
-        ApplyConditionalPhase_0(q_bitz);
-
-        DumpMachine(q_bitz);
-
-    }
-'''
+![circuit](/assets/pages//Algorithm_Even.JPG)
 
 Generalizations are a mathematicians greatest friend, but a downfall if not implemented correctly. If anyone has any input for the generalizations I have made I will take them with open arms!
 
