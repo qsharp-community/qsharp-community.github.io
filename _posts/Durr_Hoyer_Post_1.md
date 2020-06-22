@@ -1,5 +1,5 @@
 ---
-title: "Durr Hoyer Algorithm (In Progress)"
+title: "A neat quantum algorithm for finding the minimum of an unsorted table"
 date:
 categories:
   - Blog
@@ -15,7 +15,7 @@ Hello all! My name is Mridul Sarkar. I am an undergraduate at University of Cali
 
 
 ### Background
-Recently I began working on quantum computing with an idea to treat nodes of neural networks as qubits. From here I took a deep dive into the research papers and found myself amazed by the research being produced. I began with a Coursera course from St. Petersburg University on quantum computing with detail on Deutschs, Shors, and Grovers algorithms. From here I tinkered with Q# and developed basic algorithms that I learnt from Coursera. I found Durr Hoyer and saw it as an ensemble of Duestchs, Shors, and Grovers Algorithm; a perfect stepping stone coming from my background. This project has pushed me and is still pushing me outside of my comfort zone. Learning Q# while slowly refining my quantum mechanics has been a rewarding experience. I would like to pass on what I have seen and understood in that time while open to feedback. I will likely be posting about this algorithm more as it continues developing and I learn more.
+Recently I began working on quantum computing with an idea to treat nodes of neural networks as qubits. From here I took a deep dive into the research papers and found myself amazed by the research being produced. I began with a Coursera course from St. Petersburg University on quantum computing with detail on quantum algorithm design and quantum computer architecture. From here I tinkered with Q# and developed basic algorithms that I learnt. I found Durr and Hoyer's paper and saw it as an ensemble of Duestchs, Shors, and Grovers Algorithm; a perfect stepping stone coming from my background. This project has pushed me and is still pushing me outside of my comfort zone. Learning Q# while slowly refining my quantum mechanics has been a rewarding experience. I would like to pass on what I have seen and understood in that time while open to feedback. I will likely be posting about this algorithm more as it continues developing and I learn more.
 
 
 ### Motivation
@@ -106,15 +106,17 @@ Generalizations are a mathematicians greatest friend, but a downfall if not impl
 
 ### Conclusion
 
-So far I have been greatly enjoying throwing myself into this new and exciting world of quantum computing. I am constantly in search for collaboration among those who are equally as passionate about quantum computing. If you had any suggestions or questions feel free to send me an email at msarkar at ucdavis dot edu.  
-https://github.com/mridulsar/DurrHoyerLibrary
+So far I have been greatly enjoying throwing myself into this new and exciting world of quantum computing. I have seen some awesome principles translate across quantum algorithms that are keeping me engaged. In specific, I mentioned I felt Durr and Hoyer used principles from Duestch's, Grover's, and Shor's algorithm. Duestsch's Algorithm famously simplifies a classical problem into an non intuitive oracle function. Grover's Algorithm is quite literally applied in this algorithm. Lastly, Shor's Algorithm shows off the power of combining classical and quantum systems to achieve outstanding results. I love seeing such fundamental concepts continue to push boundaries. I am constantly in search for collaboration among those who are equally as passionate about quantum computing. If you had any suggestions or questions feel free to send me an email at   
+msarkar at ucdavis dot edu.    
+
+https://github.com/mridulsar/DurrHoyerLibrary   
 ------------------
 
-## My current challenges in this project:
+## My current challenges in this project:   
 
-1. Validating generalizations I made of 'Implementation Considerations'
+1. Validating generalizations I made of 'Implementation Considerations'    
 
-2. Developing alleviation for Big-O in a fluid manner.
+2. Developing alleviation for Big-O in a fluid manner.   
 
 ------------------
 
