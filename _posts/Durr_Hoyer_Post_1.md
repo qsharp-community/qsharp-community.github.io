@@ -1,5 +1,5 @@
 ---
-title: "A neat quantum algorithm for finding the minimum of an unsorted table"
+title: "A quantum algorithm for finding the minimum of an unsorted table"
 date:
 categories:
   - Blog
@@ -72,7 +72,7 @@ The register can be initiated as follows:
 
 ![latex_imp](/assets/images//latex_information.JPG)
 
-Obviously this is unachievable on current quantum computer architecture. We only have a qubit, the above example implies we have harnessed the tritbit and so on till n bit. In reality we will register all qubits as unique binary strings which will equate to their qubits.
+Obviously this is unachievable on current quantum computer architecture. We only have a qubit, the above example implies we have harnessed the tritbit and so on till n bit. In reality we will register all integers as unique binary strings which will equate to their qubits.
  
 Luckily PrepareUniformSuperposition() in Q# does this for us easily. I have implemented it as follows:
 
