@@ -26,3 +26,12 @@ filipw:
       - label: "Email"
         icon: "fas fa-fw fa-envelope-square"
         url: "mailto:wojcieszyn@gmail.com"
+        
+mridulsar:
+    name        : "Mridul Sarkar"
+    bio         : "Mathematical and Scientific Computing Senior at University of California - Davis"
+    avatar      : 
+    links:
+      - label: "Email"
+        icon: "fas fa-fw fa-envelope-square"
+        url: "mailto:msarkar@ucdavis.edu"
