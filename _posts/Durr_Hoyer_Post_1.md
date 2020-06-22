@@ -78,6 +78,8 @@ Luckily PrepareUniformSuperposition() in Q# does this for us easily. I have impl
 
 ![intialize](/assets/images//intialize.JPG)
 
+Note: make sure to use LittleEndian() on the register of qubits. I didn't include this so it looked neat.
+
 In order to mark items we simply mark all indices that come before i.
 
 ------------------
