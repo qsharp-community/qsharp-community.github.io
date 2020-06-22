@@ -78,7 +78,7 @@ Luckily PrepareUniformSuperposition() in Q# does this for us easily. I have impl
 
 ![intialize](/assets/images//intialize.JPG)
 
-Note: make sure to use LittleEndian() on the register of qubits. From here you will have to unpack the qubits with let qubits = qubits! in order to set the right data type for the rest of our algorithm. I didn't include this so it looked neat.
+Note: make sure to use LittleEndian() on the register of qubits. From here you will have to unpack the qubits with let qubits = qubits! in order to set the right data type after using PrepareUniformSuperposition() as it spits out LE datatype. I didn't include this so it looked neat.
 
 In order to mark items we simply mark all indices that come before i.
 
