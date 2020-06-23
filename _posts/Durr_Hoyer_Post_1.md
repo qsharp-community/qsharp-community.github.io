@@ -1,5 +1,5 @@
 ---
-title: "A quantum algorithm for finding the minimum of an unsorted table"
+title: "Building a Q# library to find table minima: Part 1"
 date: 2020-06-22
 categories:
   - Blog
