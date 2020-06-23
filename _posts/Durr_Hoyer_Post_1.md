@@ -4,9 +4,9 @@ date:
 categories:
   - Blog
 tags:
-  - qsharp
+  - library
   - algorithm
-  - open source
+  - in-development
 ---
 ## Introduction
 
