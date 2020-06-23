@@ -31,7 +31,7 @@ I found Dürr and Høyer's paper and saw it as an fusion of Duestch's, Shor's, a
 The motivation behind this project is to provide open source functionality. The efficiency that is proposed by this algorithm is Big-O = square root of the number of items in the table. Durr and Hoyer propose an ensemble of quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. This success rate is bounded by the Big-O. If we decide to alleviate this Big-O the probability of finding the minimum increases. With this comes some complexity in the inner workings of the library which will be explained when analyzing the algorithm. In order for this library to be used properly it must meet some guidelines. At the moment I am referencing the amazing template given by Dr. Sarah Kaiser https://github.com/crazy4pi314/qsharp-library-template in order to make this library usable in Q#. I am programming the algorithm in Q# with a python shell. The python shell will be provided below. The circuit's gates will be analyzed and some code is given.
 
 
-### The Algorithm
+## The Dürr–Høyer Algorithm
 A brief introduction to the Durr and Hoyer Algorithm can be derived from the Quantum Minimum Searching Algorithm outlined in 'A quantum algorithm for finding the minimum' [(1)]:
 
 Durr and Hoyer propose a computationally efficient routine to find the minimum of a table of distinct unsorted integers. The algorithm is as follows:
