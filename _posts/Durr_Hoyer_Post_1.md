@@ -8,7 +8,7 @@ tags:
   - algorithm
   - open source
 ---
-### Durr Hoyer
+## Introduction
 
 Hello all! 
 My name is Mridul Sarkar, and I am an undergraduate at University of California Davis studying Scientific and Mathematical Computation.
