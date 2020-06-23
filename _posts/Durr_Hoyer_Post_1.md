@@ -10,12 +10,21 @@ tags:
 ---
 ### Durr Hoyer
 
-Hello all! My name is Mridul Sarkar. I am an undergraduate at University of California Davis studying Scientific and Mathematical Computation. I began my journey from math to computers through my passion for ML algorithms. Eventually I stumbled upon quantum computing. I was instantly pulled in by the elegant algorithms and proposed efficiency.
+Hello all! 
+My name is Mridul Sarkar, and I am an undergraduate at University of California Davis studying Scientific and Mathematical Computation.
+I wanted to share with the community my experiences in learning about the Dürr–Høyer algorithim and creating a library for Q# implementing it.
+This project has pushed me and is still pushing me outside of my comfort zone, but learning Q# while slowly refining my quantum mechanics has been a rewarding experience. 
+I would like to pass on what I have seen and understood in that time, as well as ask the community for feedback. 
+I will likely be posting about this algorithm and library more as the library and my understanding continues developing.
 
-
-
-### Background
-Recently I began working on quantum computing with an idea to treat nodes of neural networks as qubits. From here I took a deep dive into the research papers and found myself amazed by the research being produced. I began with a Coursera course from St. Petersburg University on quantum computing with detail on quantum algorithm design and quantum computer architecture. From here I tinkered with Q# and developed basic algorithms that I learnt. I found Durr and Hoyer's paper and saw it as an ensemble of Duestchs, Shors, and Grovers Algorithm; a perfect stepping stone coming from my background. This project has pushed me and is still pushing me outside of my comfort zone. Learning Q# while slowly refining my quantum mechanics has been a rewarding experience. I would like to pass on what I have seen and understood in that time while open to feedback. I will likely be posting about this algorithm more as it continues developing and I learn more.
+### My Background
+I began my journey from math to computers through my passion for ML algorithms, where I stumbled upon quantum computing. 
+I was instantly pulled in by the elegant algorithms and proposed efficiency.
+Recently, I started looking into quantum machine learning where you can model nodes of neural networks as qubits. 
+I took a deep dive into the research papers and found myself amazed by what was out there.
+I began with a Coursera course from St. Petersburg University on quantum computing with detail on quantum algorithm design and quantum computer architecture. 
+From here I tinkered with Q# and developed basic algorithms that I previously learned.
+I found Dürr and Høyer's paper and saw it as an fusion of Duestch's, Shor's, and Grover's Algorithm; a perfect next step for me.
 
 
 ### Motivation
