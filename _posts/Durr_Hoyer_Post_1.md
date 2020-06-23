@@ -64,7 +64,6 @@ Durr and Hoyer propose a computationally efficient routine to find the minimum o
             return
     return y
 ```
-------------------
 
 It is easy to understand the conceptual implementation in python. It is important to note steps a and b:
 
