@@ -51,9 +51,7 @@ https://github.com/mridulsar/DurrHoyerLibrary
 
 
 ## The Dürr–Høyer Algorithm
-A brief introduction to the Dürr–Høyer Algorithm can be derived from the Quantum Minimum Searching Algorithm outlined in 'A quantum algorithm for finding the minimum' [(1)]:
-
-Dürr and Høyer propose a computationally efficient routine to find the minimum of a table of distinct unsorted integers. The algorithm is as follows:
+A brief introduction to the Dürr–Høyer Algorithm can be derived from the Quantum Minimum Searching Algorithm outlined in 'A quantum algorithm for finding the minimum' as summarized below. If you would like to read the paper in all of its glory, there is a link here:[(1)].
 
 
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
@@ -103,7 +101,7 @@ I have implemented it as follows:
         
 ---
 
-In order to mark items we simply mark all indices that come before i.
+In order to mark items we run a for loop and compare all values to each other, storing the values that are smaller than the y-th index of our flattened table.
 
 ------------------
 
