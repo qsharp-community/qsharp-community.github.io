@@ -1,6 +1,6 @@
 ---
 title: "A quantum algorithm for finding the minimum of an unsorted table"
-date:
+date: 2020-06-22
 categories:
   - Blog
 tags:
