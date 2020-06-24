@@ -35,9 +35,9 @@ On a classical computer it will take as many time steps as there are items to fi
 This means the Big-O is N.
 The Dürr-Høyer algorithm takes this problem and solves it in sqrt(N) time steps.
 For example assume there are 9 items in a table, on a classical comptuer this would take 9 time steps.
-The Dürr-Høyer algorithm would have find the minimum in 3 steps.
+The Dürr-Høyer algorithm would find the minimum in 3 steps.
 We can understand this effecieny as the Big-O. 
-The Big-O essentially means the run time of the program will increase as the table size grows at a rate of square root of table size. 
+The Big-O essentially means the run time of the program will increase as the table size grows. 
 Dürr and Høyer propose an ensemble of quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. 
 This success rate is bounded by the Big-O.
 If we decide to alleviate this Big-O the probability of finding the minimum increases. 
