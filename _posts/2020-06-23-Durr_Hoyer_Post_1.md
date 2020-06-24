@@ -46,7 +46,7 @@ With this comes some complexity in the inner workings of the library which will 
 In order for this library to be used properly it must meet some guidelines. 
 At the moment I am referencing the amazing template given by Dr. Sarah Kaiser https://github.com/crazy4pi314/qsharp-library-template in order to make this library usable in Q#. 
 I am programming the algorithm in Q# with a python host script.
-The python host script will be provided below. The circuit's gates will be analyzed and some code is given.  
+The circuit's gates will be analyzed and some code is given.  
 https://github.com/mridulsar/DurrHoyerLibrary   
 
 
@@ -55,7 +55,7 @@ A brief introduction to the Dürr–Høyer Algorithm can be derived from the Qua
 
 
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
-2. Repeat the following steps until T = 22.5 * sqrt(N) + 1.4 * log^2(N). Once T equals the expression with N proceed to step c   
+2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). Once time equals the expression with N proceed to step c   
 2(a) Intialize the memory as a uniform superposition of qubits. Each qubit represents an integer in the table. After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. Additionally, mark all elements of the table which are less than than the y-th integer of the table. 
 2(b) Apply the quantum exponential searching algorithm [(2)].
 2(c) Measure the first qubit, map this qubit back to the integer it represents. If this integer is less than the integer in the y-th position set y as the position of the integer represented by the measured qubit.
@@ -64,24 +64,27 @@ A brief introduction to the Dürr–Høyer Algorithm can be derived from the Qua
 It is important to note steps a and b:
 
 
-2(a) Intialize the memory as a uniform superposition of qubits. Each qubit represents an integer in the table. After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. Additionally, mark all elements of the table which are less than than the y-th integer of the table. 
+2(a) Intialize the memory as a uniform superposition of qubits. 
+Each qubit represents an integer in the table. 
+After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. 
+Additionally, mark all elements of the table which are less than than the y-th integer of the table.   
 
 Part a is probably the most interesting part of this algorithm from my perspective. 
 After a brief chat with Dr. Hoyer I realized this aspect of the algorithm is a field of research in itself. 
-The creation of qubits from a table of unique integers is an interesting question.
+The creation of qubits from a table of unique integers is an interesting question.   
 
 For now, the more prevalent question is what sort of initialization we can use to verify the integrity and efficiency of this algorithm. 
 My most immediate thought is to entangle all the qubits and superimpose them. 
 The classical value of the integer is not represented here, only the index of the integer is captured at a quantum level on the table assuming an input datatype of BigEndian. 
-If the goal is to test the algorithm's probabilistic integrity this plan of action will suffice.
+If the goal is to test the algorithm's probabilistic integrity this plan of action will suffice.   
 
-The register can be initiated as follows:
+The register can be initiated as follows:   
 
-![latex_imp](/assets/images//latex_information.JPG)
+![latex_imp](/assets/images//latex_information.JPG)   
 
 Obviously this is unachievable on current quantum computer architecture. 
 We only have a qubit, the above example implies we have harnessed the tritbit and so on till n bit.
-In reality we will register all integers as unique binary strings which will equate to their qubits.
+In reality we will register all integers as unique binary strings which will equate to their qubits.   
  
 Luckily PrepareUniformSuperposition() in Q# does this for us easily. 
 I have implemented it as follows:
