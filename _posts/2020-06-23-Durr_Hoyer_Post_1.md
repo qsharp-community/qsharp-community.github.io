@@ -61,8 +61,10 @@ Each qubit represents an integer in the table.
 After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. 
 Additionally, mark all elements of the table which are less than than the y-th integer of the table.   
 2(b) Apply the quantum exponential searching algorithm [(2)].   
-2(c) Measure the first qubit, map this qubit back to the integer it represents. 
-If this integer is less than the integer in the y-th position set y as the position of the integer represented by the measured qubit.
+2(c) Measure the first qubit and map this qubit back to the the intialized state of qubits.
+One of which will be uniquely identified by the measured qubit and represent the hypothetical minima's index.
+Take this hypothetical minima's index as y'.
+If the integer in the y'-th position is less than the integer in the y-th position set y as y'.
 
 
 It is important to note steps a and b:   
