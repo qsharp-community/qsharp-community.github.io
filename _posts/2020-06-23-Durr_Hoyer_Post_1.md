@@ -8,6 +8,26 @@ tags:
   - algorithm
   - in-development
 ---
+
+## TL;DR
+'''
+
+
+    The Dürr-Høyer algorithm takes an unsorted table of integers    
+    and finds the minima in Big-O(sqrt(N)) N being the # of elements in the table.         
+    Open Source Implementation of the algorithm is easily done, understanding the Dürr and Høyer paper [(1)]    
+    was and is the most difficult challenge.   
+    There is a python host file and two Q# circuits.   
+    One circuit applies the Quantum Minimum Searching Algorithm and
+    another circuit intializes our register as described in 'A quantum algorithm for finding the minimum'[(1)]    
+    The most intersting part of the algorithm is the initializing of the register   
+    and applying the quantum exponential searching algorithm [(2)] to the register.
+
+    If you would like to contribute to this project or take a look at some code head over to:   
+    https://github.com/mridulsar/DurrHoyerLibrary 
+
+
+'''
 ## Introduction
 
 Hello all! 
@@ -16,22 +36,7 @@ I wanted to share with the community my experiences in learning about the Dürr�
 This project has pushed me and is still pushing me outside of my comfort zone, but learning Q# while slowly refining my quantum mechanics has been a rewarding experience. 
 I would like to pass on what I have seen and understood in that time, as well as ask the community for feedback. 
 I will likely be posting about this algorithm and library more as the library and my understanding continues developing.   
-https://github.com/mridulsar/DurrHoyerLibrary   
-
-## TL;DR
-
-The Dürr-Høyer algorithm takes an unsorted table of integers and finds the minima in Big-O(sqrt(N)) N being the # of elements in the table    
--
-Open Source Implementation is going smoothly, understanding the Dürr and Høyer paper [(1)] was and is the most difficult challenge.   
--
-There is a python host file and two Q# circuits. One circuit applies the Quantum Minimum Searching Algorithm and another circuit intializes our register as described in 'A quantum algorithm for finding the minimum'[(1)]   
--
-The most intersting part of the algorithm is the initializing of the register and applying the quantum exponential searching algorithm [(2)] to the register.
--
-If you would like to contribute to this project or just want to learn more head over to: https://github.com/mridulsar/DurrHoyerLibrary 
--
-
-
+https://github.com/mridulsar/DurrHoyerLibrary.     
 
 ### My Background
 I began my journey from math to computers through my passion for ML algorithms, where I stumbled upon quantum computing. 
