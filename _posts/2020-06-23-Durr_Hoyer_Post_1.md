@@ -18,6 +18,21 @@ I would like to pass on what I have seen and understood in that time, as well as
 I will likely be posting about this algorithm and library more as the library and my understanding continues developing.   
 https://github.com/mridulsar/DurrHoyerLibrary   
 
+## TL;DR
+
+The Dürr-Høyer algorithm takes an unsorted table of integers and finds the minima in Big-O(sqrt(N)) N being the # of elements in the table    
+-
+Open Source Implementation is going smoothly, understanding the Dürr and Høyer paper [(1)] was and is the most difficult challenge.   
+-
+There is a python host file and two Q# circuits. One circuit applies the Quantum Minimum Searching Algorithm and another circuit intializes our register as described in 'A quantum algorithm for finding the minimum'[(1)]   
+-
+The most intersting part of the algorithm is the initializing of the register and applying the quantum exponential searching algorithm [(2)] to the register.
+-
+If you would like to contribute to this project or just want to learn more head over to: https://github.com/mridulsar/DurrHoyerLibrary 
+-
+
+
+
 ### My Background
 I began my journey from math to computers through my passion for ML algorithms, where I stumbled upon quantum computing. 
 I was instantly pulled in by the elegant algorithms and proposed efficiency.
