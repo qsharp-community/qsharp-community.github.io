@@ -64,8 +64,8 @@ Additionally, mark all elements of the table which are less than than the y-th i
 2(c) Measure the first qubit and map this qubit back to the the intialized state of qubits.
 One of which will be uniquely identified by the measured qubit and represent the hypothetical minima's index.
 Take this hypothetical minima's index as y'.
-If the integer in the y'-th position is less than the integer in the y-th position set y as y'.
-
+If the integer in the y'-th position is less than the integer in the y-th position set y as y'.   
+3. Return y.
 
 It is important to note steps a and b:   
 
