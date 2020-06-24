@@ -10,8 +10,7 @@ tags:
 ---
 
 ## TL;DR
-'''
-
+---
 
     The Dürr-Høyer algorithm takes an unsorted table of integers    
     and finds the minima in Big-O(sqrt(N)) N being the # of elements in the table.         
@@ -26,8 +25,8 @@ tags:
     If you would like to contribute to this project or take a look at some code head over to:   
     https://github.com/mridulsar/DurrHoyerLibrary 
 
+---
 
-'''
 ## Introduction
 
 Hello all! 
