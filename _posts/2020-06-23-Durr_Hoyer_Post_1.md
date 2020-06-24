@@ -56,15 +56,19 @@ A brief introduction to the Dürr–Høyer Algorithm can be derived from the Qua
 
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
 2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). Once time equals the expression with N proceed to step c   
-2(a) Intialize the memory as a uniform superposition of qubits. Each qubit represents an integer in the table. After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. Additionally, mark all elements of the table which are less than than the y-th integer of the table. 
-2(b) Apply the quantum exponential searching algorithm [(2)].
-2(c) Measure the first qubit, map this qubit back to the integer it represents. If this integer is less than the integer in the y-th position set y as the position of the integer represented by the measured qubit.
-
-
-It is important to note steps a and b:
-
-
 2(a) Intialize the memory as a uniform superposition of qubits. 
+Each qubit represents an integer in the table. 
+After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. 
+Additionally, mark all elements of the table which are less than than the y-th integer of the table.   
+2(b) Apply the quantum exponential searching algorithm [(2)].   
+2(c) Measure the first qubit, map this qubit back to the integer it represents. 
+If this integer is less than the integer in the y-th position set y as the position of the integer represented by the measured qubit.
+
+
+It is important to note steps a and b:   
+
+
+2(a) Intialize the memory as a uniform superposition of qubits.
 Each qubit represents an integer in the table. 
 After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. 
 Additionally, mark all elements of the table which are less than than the y-th integer of the table.   
