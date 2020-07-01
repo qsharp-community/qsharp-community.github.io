@@ -109,7 +109,7 @@ Step 2(a) has been stasified. Now we must figure out how to apply the QESA algor
 
 
 
-![](DurrHoyer-Implementation.JPG)    
+![implement](/assets/images/DurrHoyer-Implementation.JPG)    
 
 
 
