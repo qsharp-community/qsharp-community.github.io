@@ -12,14 +12,11 @@ tags:
 ## TL;DR
 ---
 
-    The Dürr-Høyer algorithm takes an unsorted table of integers and finds the minima in Big-O(sqrt(N)) N being the # of elements in the table.          
+    The Dürr-Høyer algorithm takes an unsorted table of integers and 
+    finds the minima in Big-O(sqrt(N)) N being the # of elements in the table.          
     There is a python host file and a Q# file.  
     The python file follows the Quantum Minimum Searching Algorithm closely.
     The Q# file follows the Quantum Exponential Searching Algorithm implementation for finding a unique solution.
-    This implementation will allow for easy use of QMSA on any problem where a unique solution needs to be found.
-    The python host file is not necessary though it does give us a template to work on other problems. 
-    QESA can be run indepently and will allocate itself to your table size and random index. 
-
     If you would like to contribute to this project or take a look at some code head over to:   
     https://github.com/mridulsar/DurrHoyerLibrary 
 
