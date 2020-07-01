@@ -89,37 +89,31 @@ If the integer in the y'-th position is less than the integer in the y-th positi
 
 The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum.
 
-    operation Algorithm(TableLength : Int, RandomIndex : Int) : Unit
-    {
+In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
+
         using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
         {
             within
                 {   
-                    let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
-
                     PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
+                    
+                    let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
 
                     Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
                 }
 
-Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows: 
+Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows:    
 
-            apply 
-                {
-                    ApplyToEach(H,Register); // Apply Hadamard to register
+![](DurrHoyer-Implementation.JPG)    
 
-                    //QFTLE(LittleEndian(register)); Implemntation for odd number of table entries
+We utilize the register we were working with earlier and apply a T' transform, this is stated to simply be the Hadmard.  
 
-                    ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
+    ApplyToEach(H,Register); // Apply Hadamard to register
+           
+We then apply a conditional phase shift if the qubit is 0.    
 
-                    ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
-
-                    //QFT(BigEndian(register)); Inverse QFT by using BigEndian
-
-                    ApplyConditionalPhase(LittleEndian(Register)); // Reflect qubits that are 1s
-                }
-        }
-    }
+    ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
+    ---
     operation ApplyConditionalPhase_0(register: LittleEndian) : Unit is Adj + Ctl
     {
         using (aux = Qubit()) 
@@ -127,6 +121,16 @@ Step 2(a) has been stasified. Now we must figure out how to apply the QESA algor
             (ControlledOnInt(0,Z))(register!,aux); // If qubit is 0 flip it!
         }
     }
+
+From here we apply the inverse of the Hadmard, this is just the conjugate transpose since Hadamard is unitary. 
+This can be implemented be calling the Adjunct of Hadamard.    
+    
+    ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
+    
+The last step is another conditional phase shift, though it is applied if the qubit is 1.
+
+    ApplyConditionalPhase(LittleEndian(Register)); // Reflect qubits that are 1s
+    ---
     operation ApplyConditionalPhase(register : LittleEndian) : Unit is Adj + Ctl 
     {
         using (aux = Qubit()) 
@@ -134,54 +138,114 @@ Step 2(a) has been stasified. Now we must figure out how to apply the QESA algor
             (ControlledOnInt(1,Z))(register!,aux); // If qubit is 1 flip it!
         }
     }
-For futher information on how this was derived take a look at 'Tight bounds on quantum searching' under Implementation Considerations [2].   
+
+---
+
+Our Q# script will be structured as follows:
+
+    namespace QESA {
+        open Microsoft.Quantum.Intrinsic;
+        open Microsoft.Quantum.Diagnostics;
+        open Microsoft.Quantum.Arrays; 
+        open Microsoft.Quantum.Preparation;
+        open Microsoft.Quantum.Canon;
+        open Microsoft.Quantum.Arithmetic;
+        open Microsoft.Quantum.Math;
+        open Microsoft.Quantum.Core;
+        open Microsoft.Quantum.Convert;
+        operation Algorithm(TableLength : Int, RandomIndex : Int) : Unit
+        {
+            using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
+            {
+                within
+                    {   
+                        let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
+
+                        PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
+
+                        Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
+                    }
+                apply 
+                    {
+                        ApplyToEach(H,Register); // Apply Hadamard to register
+
+                        //QFTLE(LittleEndian(register)); Implemntation for odd number of table entries
+
+                        ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
+
+                        ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
+
+                        //QFT(BigEndian(register)); Inverse QFT by using BigEndian
+
+                        ApplyConditionalPhase(LittleEndian(Register)); //Reflect qubits that are 1s
+                    }
+            }
+        }
+        operation ApplyConditionalPhase_0(register: LittleEndian) : Unit is Adj + Ctl
+        {
+            using (aux = Qubit()) 
+            {
+                (ControlledOnInt(0,Z))(register!,aux); // If qubit is 0 flip it!
+            }
+        }
+        operation ApplyConditionalPhase(register : LittleEndian) : Unit is Adj + Ctl 
+        {
+            using (aux = Qubit()) 
+            {
+                (ControlledOnInt(1,Z))(register!,aux); // If qubit is 1 flip it!
+            }
+        }
+    }
+---
+For futher information on how this was derived take a look at 'Tight bounds on quantum searching' [2].   
 
 Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,RandomIndex) is iterated on until we find a suitable y' or we simply hit our time limit. The true stars of this algorithm are the time limit, which guarantees O(sqrt(N)), the generalized Grovers algorithm given in QESA, which provides for easy implementation and has O(1) for each iteration, and lastly, the oracle function which marks our states, which along with our intialization of qubits holds O(log(n)).
 
 Here is the python host that will apply the conditions of QMSA while using QESA.
 
-class DH(object):
+    class DH(object):
 
-    def __init__(self,table):
+      def __init__(self,table):
 
-        self.table = np.ndarray.flatten(table) 
+          self.table = np.ndarray.flatten(table) # Flatten table
 
-        self.N= len(self.table)
+          self.N= len(self.table) # Number of elements in the table
 
-        self.y = int(np.random.uniform(0,self.N-1))
+          self.y = int(np.random.uniform(0,self.N-1)) # Choose our random index
 
-    def QMSA(self,N,y,table):
-        N = self.N
+      def QMSA(self,N,y,table):
+      
+          N = self.N
 
-        y = self.y
+          y = self.y
 
-        t = self.table
+          t = self.table
 
-        y_prime = N
+          y_prime = N
 
-        time_limit = (22.5*np.sqrt(N)+1.4*np.log(N)**2)
+          time_limit = (22.5*np.sqrt(N)+1.4*np.log(N)**2) # Time limit as specified in QMSA
 
-        while time.clock() < time_limit:    
+          while time.clock() < time_limit:    
 
-            for i in range(N):
+              for i in range(N):
 
-                while t[y] > t[y_prime]:
+                  while t[y] < t[y_prime]:
 
-                    #if N // 2 :
+                      if N // 2 : # Implementation of odd and even functionality
 
-                    y_prime= Algorithm.simulate(N,y)
+                          y_prime= Algorithm.simulate(N,y)
 
-                    #else: 
+                      else: 
 
-                        #y_prime=Algorithm_Odd.simulate(N,y)
+                          y_prime=Algorithm_Odd.simulate(N,y)
 
-                if t[y_prime] < t[y]:
+                  if t[y_prime] < t[y]: # Check if we have found our minimum
 
-                    i=0
+                      i=0 # reset loop if found
 
-            y = y_prime 
+              y = y_prime #store index with minimum
 
-        return y                                                      
+          return y                                                      
 
 
 ------------------
@@ -194,8 +258,10 @@ In specific, I mentioned I felt Dürr and Høyer used principles from Duestch's,
 Duestsch's Algorithm famously simplifies a classical problem into an non intuitive oracle function as done in Dürr and Høyer's algorithm to mark all states that satisfy T[j]<T[y]. 
 Grover's Algorithm is quite literally applied in this algorithm, though a generalized version is used.
 Lastly, Shor's Algorithm shows off the power of combining classical and quantum systems to achieve outstanding results, which is shown in Dürr and Høyer's algorithm by bounding our time, a classical step in the algorithm.
-I love seeing such fundamental concepts continue to push boundaries.     
-I am constantly in search for collaboration among those who are equally as passionate about quantum computing.
+I love seeing such fundamental concepts continue to push boundaries.  
+
+This algorithm should be available to use within Q# within the next few weeks as testing is done to ensure usability.
+In the mean time you can test this code for yourself, I would love to see what this community can do with an algorithm like this.
 If you had any suggestions or questions feel free to send me an email.
 
 https://github.com/mridulsar/DurrHoyerLibrary   
