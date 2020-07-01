@@ -16,11 +16,12 @@ tags:
     and finds the minima in Big-O(sqrt(N)) N being the # of elements in the table.         
     Open Source Implementation of the algorithm is easily done, understanding the Dürr and Høyer paper  
     was and is the most difficult challenge.   
-    There is a python host file and two Q# circuits.   
-    One circuit applies the Quantum Minimum Searching Algorithm and
-    another circuit intializes our register as described in 'A quantum algorithm for finding the minimum'    
-    The most intersting part of the algorithm is the initializing of the register   
-    and applying the quantum exponential searching algorithm to the register.
+    There is a python host file and a Q# file.  
+    The python file follows the Quantum Minimum Searching Algorithm closely.
+    The Q# file follows the Quantum Exponential Searching Algorithm implementation for finding a unique solution.
+    This implementation will allow for easy use of QMSA on any problem where a unique solution needs to be found.
+    The python host file is not necessary though it does give us a template to work on other problems. 
+    QESA can be run indepently and will allocate itself to your table size and random index. 
 
     If you would like to contribute to this project or take a look at some code head over to:   
     https://github.com/mridulsar/DurrHoyerLibrary 
@@ -136,6 +137,51 @@ Step 2(a) has been stasified. Now we must figure out how to apply the QESA algor
 For futher information on how this was derived take a look at 'Tight bounds on quantum searching' under Implementation Considerations [2].   
 
 Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,RandomIndex) is iterated on until we find a suitable y' or we simply hit our time limit. The true stars of this algorithm are the time limit, which guarantees O(sqrt(N)), the generalized Grovers algorithm given in QESA, which provides for easy implementation and has O(1) for each iteration, and lastly, the oracle function which marks our states, which along with our intialization of qubits holds O(log(n)).
+
+Here is the python host that will apply the conditions of QMSA while using QESA.
+
+class DH(object):
+
+    def __init__(self,table):
+
+        self.table = np.ndarray.flatten(table) 
+
+        self.N= len(self.table)
+
+        self.y = int(np.random.uniform(0,self.N-1))
+
+    def QMSA(self,N,y,table):
+        N = self.N
+
+        y = self.y
+
+        t = self.table
+
+        y_prime = N
+
+        time_limit = (22.5*np.sqrt(N)+1.4*np.log(N)**2)
+
+        while time.clock() < time_limit:    
+
+            for i in range(N):
+
+                while t[y] > t[y_prime]:
+
+                    #if N // 2 :
+
+                    y_prime= Algorithm.simulate(N,y)
+
+                    #else: 
+
+                        #y_prime=Algorithm_Odd.simulate(N,y)
+
+                if t[y_prime] < t[y]:
+
+                    i=0
+
+            y = y_prime 
+
+        return y                                                      
 
 
 ------------------
