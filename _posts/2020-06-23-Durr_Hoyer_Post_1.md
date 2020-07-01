@@ -107,11 +107,11 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
 
 Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows:  
 
----
+
 
 ![](DurrHoyer-Implementation.JPG)    
 
----
+
 
 We utilize the register we were working with earlier and apply a T' transform, this is stated to simply be the Hadmard. 
 
