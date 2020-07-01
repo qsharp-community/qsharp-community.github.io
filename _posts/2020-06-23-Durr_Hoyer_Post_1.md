@@ -38,38 +38,6 @@ I would like to pass on what I have seen and understood in that time, as well as
 I will likely be posting about this algorithm and library more as the library and my understanding continues developing.   
 https://github.com/mridulsar/DurrHoyerLibrary.     
 
-### My Background
-I began my journey from math to computers through my passion for ML algorithms, where I stumbled upon quantum computing. 
-I was instantly pulled in by the elegant algorithms and proposed efficiency.
-Recently, I started looking into quantum machine learning where you can model nodes of neural networks as qubits. 
-I took a deep dive into the research papers and found myself amazed by what was out there.
-I began with a Coursera course from St. Petersburg University on quantum computing with detail on quantum algorithm design and quantum computer architecture. 
-From here I tinkered with Q# and developed basic algorithms that I previously learned.
-I found Dürr and Høyer's paper and saw it as an fusion of Duestch's, Shor's, and Grover's Algorithm; a perfect next step for me.
-
-
-### Motivation
-The motivation behind this project is to provide open source functionality. 
-The efficiency that is proposed by this algorithm is much better than a typical algorithm for finding the minimum of an unsorted table.
-On a classical computer it will take as many time steps as there are items to find a minimum. 
-This means the Big-O is N.
-The Dürr-Høyer algorithm takes this problem and solves it in sqrt(N) time steps.
-For example assume there are 9 items in a table, on a classical comptuer this would take 9 time steps.
-The Dürr-Høyer algorithm would find the minimum in 3 steps.
-We can understand this effecieny as the Big-O. 
-The Big-O essentially means the run time of the program will increase as the table size grows. 
-Dürr and Høyer propose a quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. 
-This success rate is bounded by the Big-O.
-If we decide to alleviate this Big-O the probability of finding the minimum increases. 
-Essentialy if we let the algorithm run for longer than the time it takes to guarantee a 50% success rate, we will get a success rate greater than 50 %. 
-With this comes some complexity in the inner workings of the library which will be explained when analyzing the algorithm. 
-In order for this library to be used properly it must meet some guidelines. 
-At the moment I am referencing the amazing template given by Dr. Sarah Kaiser https://github.com/crazy4pi314/qsharp-library-template in order to make this library usable in Q#. 
-I am programming the algorithm in Q# with a python host script.
-The circuit's gates will be analyzed and some code is given.  
-https://github.com/mridulsar/DurrHoyerLibrary   
-
-
 ## The Dürr–Høyer Algorithm
 A brief introduction to the Dürr–Høyer Algorithm can be derived from the Quantum Minimum Searching Algorithm outlined in 'A quantum algorithm for finding the minimum' as summarized below. If you would like to read the paper in all of its glory, there is a link here:[(1)].
 
@@ -301,6 +269,36 @@ Here is the python host that will apply the conditions of QMSA while using QESA.
 
 ------------------
 
+### Motivation
+The motivation behind this project is to provide open source functionality. 
+The efficiency that is proposed by this algorithm is much better than a typical algorithm for finding the minimum of an unsorted table.
+On a classical computer it will take as many time steps as there are items to find a minimum. 
+This means the Big-O is N.
+The Dürr-Høyer algorithm takes this problem and solves it in sqrt(N) time steps.
+For example assume there are 9 items in a table, on a classical comptuer this would take 9 time steps.
+The Dürr-Høyer algorithm would find the minimum in 3 steps.
+We can understand this effecieny as the Big-O. 
+The Big-O essentially means the run time of the program will increase as the table size grows. 
+Dürr and Høyer propose a quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. 
+This success rate is bounded by the Big-O.
+If we decide to alleviate this Big-O the probability of finding the minimum increases. 
+Essentialy if we let the algorithm run for longer than the time it takes to guarantee a 50% success rate, we will get a success rate greater than 50 %. 
+With this comes some complexity in the inner workings of the library which will be explained when analyzing the algorithm. 
+In order for this library to be used properly it must meet some guidelines. 
+At the moment I am referencing the amazing template given by Dr. Sarah Kaiser https://github.com/crazy4pi314/qsharp-library-template in order to make this library usable in Q#. 
+I am programming the algorithm in Q# with a python host script.
+The circuit's gates will be analyzed and some code is given.  
+https://github.com/mridulsar/DurrHoyerLibrary   
+
+### My Background
+I began my journey from math to computers through my passion for ML algorithms, where I stumbled upon quantum computing. 
+I was instantly pulled in by the elegant algorithms and proposed efficiency.
+Recently, I started looking into quantum machine learning where you can model nodes of neural networks as qubits. 
+I took a deep dive into the research papers and found myself amazed by what was out there.
+I began with a Coursera course from St. Petersburg University on quantum computing with detail on quantum algorithm design and quantum computer architecture. 
+From here I tinkered with Q# and developed basic algorithms that I previously learned.
+I found Dürr and Høyer's paper and saw it as an fusion of Duestch's, Shor's, and Grover's Algorithm; a perfect next step for me.
+
 ### Conclusion
 
 So far I have been greatly enjoying throwing myself into this new and exciting world of quantum computing. 
@@ -311,7 +309,11 @@ Grover's Algorithm is quite literally applied in this algorithm, though a genera
 Lastly, Shor's Algorithm shows off the power of combining classical and quantum systems to achieve outstanding results, which is shown in Dürr and Høyer's algorithm by bounding our time, a classical step in the algorithm.
 I love seeing such fundamental concepts continue to push boundaries.  
 
-This algorithm should be available to use within Q# within the next few weeks once testing is done to ensure usability.
+This algorithm should be available to use within Q# within the next few weeks once testing is done to ensure usability. 
+QESA is really the algorithm of interest, to get a running version of QMSA is just to show that this algorithm does indeed work. 
+What is more interesting is creating variations of QMSA to fit your needs while utilizing QESA. 
+It is important to note that currently QESA can only solve for one unique solution. 
+In the future, QESA will be more robust and multiple solutions can be found.
 In the mean time you can implement this code for yourself, I would love to see what this community can do with an algorithm like this.
 If you had any suggestions or questions feel free to send me an email.
 
