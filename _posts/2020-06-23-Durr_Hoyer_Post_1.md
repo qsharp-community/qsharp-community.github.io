@@ -14,13 +14,13 @@ tags:
 
     The Dürr-Høyer algorithm takes an unsorted table of integers    
     and finds the minima in Big-O(sqrt(N)) N being the # of elements in the table.         
-    Open Source Implementation of the algorithm is easily done, understanding the Dürr and Høyer paper [(1)]    
+    Open Source Implementation of the algorithm is easily done, understanding the Dürr and Høyer paper  
     was and is the most difficult challenge.   
     There is a python host file and two Q# circuits.   
     One circuit applies the Quantum Minimum Searching Algorithm and
-    another circuit intializes our register as described in 'A quantum algorithm for finding the minimum'[(1)]    
+    another circuit intializes our register as described in 'A quantum algorithm for finding the minimum'    
     The most intersting part of the algorithm is the initializing of the register   
-    and applying the quantum exponential searching algorithm [(2)] to the register.
+    and applying the quantum exponential searching algorithm to the register.
 
     If you would like to contribute to this project or take a look at some code head over to:   
     https://github.com/mridulsar/DurrHoyerLibrary 
@@ -57,7 +57,7 @@ For example assume there are 9 items in a table, on a classical comptuer this wo
 The Dürr-Høyer algorithm would find the minimum in 3 steps.
 We can understand this effecieny as the Big-O. 
 The Big-O essentially means the run time of the program will increase as the table size grows. 
-Dürr and Høyer propose an ensemble of quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. 
+Dürr and Høyer propose a quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. 
 This success rate is bounded by the Big-O.
 If we decide to alleviate this Big-O the probability of finding the minimum increases. 
 Essentialy if we let the algorithm run for longer than the time it takes to guarantee a 50% success rate, we will get a success rate greater than 50 %. 
@@ -74,116 +74,81 @@ A brief introduction to the Dürr–Høyer Algorithm can be derived from the Qua
 
 
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
-2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). Once time equals the expression with N proceed to step c   
+2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). The time begins once we start step 2(a), if time equals the expression with N proceed to step c   
 2(a) Intialize the memory as a uniform superposition of qubits. 
-Each qubit represents an integer in the table. 
-After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. 
-Additionally, mark all elements of the table which are less than than the y-th integer of the table.   
-2(b) Apply the quantum exponential searching algorithm [(2)].   
-2(c) Measure the first qubit through use of Shor's Algorithm.
+Each qubit represents an index. 
+After intializing the memory grab the y-th qubit and entangle the state of your register with this y-th qubit according the the Oracle given by Grover. 
+This marks all T[j]<T[y].   
+2(b) Apply the quantum exponential searching algorithm [(2)].
+It is a generalized Grovers.   
+2(c) Measure the first register.
 Take this hypothetical minima's index as y'.
 If the integer in the y'-th position is less than the integer in the y-th position set y as y'.   
-3. Return y.
+3. Return y.   
 
-It is important to note steps a and b:   
+The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum.
 
-
-2(a) Intialize the memory as a uniform superposition of qubits.
-Each qubit represents an integer in the table. 
-After Intializing the memory apply the qubit representing y-th index of the flattened table to your register. 
-Additionally, mark all elements of the table which are less than than the y-th integer of the table.   
-
-Part a is probably the most interesting part of this algorithm from my perspective. 
-After a brief chat with Dr. Hoyer I realized this aspect of the algorithm is a field of research in itself. 
-The creation of qubits from a table of unique integers is an interesting question.   
-
-For now, the more prevalent question is what sort of initialization we can use to verify the integrity and efficiency of this algorithm. 
-My most immediate thought is to entangle all the qubits and superimpose them. 
-The classical value of the integer is not represented here, only the index of the integer is captured at a quantum level on the table assuming an input datatype of BigEndian. 
-If the goal is to test the algorithm's probabilistic integrity this plan of action will suffice.   
-
-The register can be initiated as follows:   
-
-![latex_imp](/assets/images//latex_information.JPG)   
-
-Obviously this is unachievable on current quantum computer architecture. 
-We only have a qubit, the above example implies we have harnessed the tritbit and so on till n bit.
-In reality we will register all integers as unique binary strings which will equate to their qubits.   
- 
-Luckily PrepareUniformSuperposition() in Q# does this for us easily. 
-I have implemented it as follows:
-
----
-
-    operation CreateQuantumInformation( TableLength : Int, RandomIndex : Int ) : Qubit[]
-        {
-            using (register = Qubit[TableLength])
-            {
-                PrepareUniformSuperposition(N,LittleEndian(register));
-                let register = LittleEndianasBigEndian(register);
-                ApplytoAll(i*register[RandomIndex], register!);
-            }   
-            return aux;
-        }
-        
----
-
-In order to mark items we run a for loop and compare all values to each other, storing the values that are smaller than the y-th index of our flattened table.
-
-------------------
-
-2(b) Apply the quantum exponential searching algorithm [(2)].  
-
-Part b must be understood through another paper 'Tight bounds on quantum searching' [(2)].
-It details the use of the quantum exponential searching algorithm.
-The Dürr–Høyer Algorithm is supposed to push computational efficiency versus computational accuracy.
-The statement earlier mentioning the 50% success rate for finding the minimum is bounded by the Big-O depends on the number of times the QESA is applied to our quantum information.
-Essentially, the number of times we call upon the algorithm in step (b) the greater our Big-0 and probabilistic success rate. The Dürr–Høyer algorithm answers to a 'sweet spot' of sorts. 
-The algorithm will run for the allotted time based T = 22.5 * sqrt(N) + 1.4 * log^2(N) to achieve a 50% success rate.
-If we do some math and manipulate the expression with N we can achieve better accuracy with a longer run time.
-This proof is done in detail in 'A quantum algorithm to find  [(1)]. 
-An important feature of this open source library will be the user's manipulation of how many times step 2(b) is applied.
-
-
-The details of step 2(b) are mentioned under "Implementation Considerations".
-
-![Implementation](/assets/images//DurrHoyer-Implementation.JPG "Implementation")
-
-It is important to note that if the table has odd elements a different form of the algorithm must be used.
-Being new to quantum computing I have found myself wading through darkness at times.
-Reading this even now leaves me a bit unsure and skeptical of my own implementation, redoing my calculations.
-After research and conversations with quantum computing aficionados I have reached the following conclusions:
-
-1. T is just a Hadamard Gate
-2. Conditional Phase Shift on A is a variation of the CNOT Gate
-3. Conditional Phase Shift on 0 will will change the sign of the qubit if it is in null space, otherwise it will give the same result back
-
-Here is a small snippet of my current circuit:
-
----
-
-    operation ApplyDürrHøyer( register : BigEndian[] ) : Unit 
+    operation Algorithm(TableLength : Int, RandomIndex : Int) : Unit
     {
-        ApplyToEach(H,register!); 
-        ApplyConditionalPhase_A(register);
-        ApplyToEach(H,register!);
-        ApplyConditionalPhase_0(register);
-    }
-    
----
+        using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
+        {
+            within
+                {   
+                    let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
 
-Generalizations are a mathematicians greatest friend, but a downfall if not implemented correctly.
-If anyone has any input for the generalizations I have made I will take them with open arms!
+                    PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
+
+                    Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
+                }
+
+Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows: 
+
+            apply 
+                {
+                    ApplyToEach(H,Register); // Apply Hadamard to register
+
+                    //QFTLE(LittleEndian(register)); Implemntation for odd number of table entries
+
+                    ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
+
+                    ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
+
+                    //QFT(BigEndian(register)); Inverse QFT by using BigEndian
+
+                    ApplyConditionalPhase(LittleEndian(Register)); // Reflect qubits that are 1s
+                }
+        }
+    }
+    operation ApplyConditionalPhase_0(register: LittleEndian) : Unit is Adj + Ctl
+    {
+        using (aux = Qubit()) 
+        {
+            (ControlledOnInt(0,Z))(register!,aux); // If qubit is 0 flip it!
+        }
+    }
+    operation ApplyConditionalPhase(register : LittleEndian) : Unit is Adj + Ctl 
+    {
+        using (aux = Qubit()) 
+        {
+            (ControlledOnInt(1,Z))(register!,aux); // If qubit is 1 flip it!
+        }
+    }
+For futher information on how this was derived take a look at 'Tight bounds on quantum searching' under Implementation Considerations [2].   
+
+Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,RandomIndex) is iterated on until we find a suitable y' or we simply hit our time limit. The true stars of this algorithm are the time limit, which guarantees O(sqrt(N)), the generalized Grovers algorithm given in QESA, which provides for easy implementation and has O(1) for each iteration, and lastly, the oracle function which marks our states, which along with our intialization of qubits holds O(log(n)).
+
 
 ------------------
 
 ### Conclusion
 
-So far I have been greatly enjoying throwing myself into this new and exciting world of quantum computing. I have seen some awesome principles translate across quantum algorithms that are keeping me engaged.
+So far I have been greatly enjoying throwing myself into this new and exciting world of quantum computing. 
+I have seen some awesome principles translate across quantum algorithms that are keeping me engaged.
 In specific, I mentioned I felt Dürr and Høyer used principles from Duestch's, Grover's, and Shor's algorithm.
-Duestsch's Algorithm famously simplifies a classical problem into an non intuitive oracle function as 'G' does. Grover's Algorithm is quite literally applied in this algorithm.
-Lastly, Shor's Algorithm shows off the power of combining classical and quantum systems to achieve outstanding results.
-I love seeing such fundamental concepts continue to push boundaries.
+Duestsch's Algorithm famously simplifies a classical problem into an non intuitive oracle function as done in Dürr and Høyer's algorithm to mark all states that satisfy T[j]<T[y]. 
+Grover's Algorithm is quite literally applied in this algorithm, though a generalized version is used.
+Lastly, Shor's Algorithm shows off the power of combining classical and quantum systems to achieve outstanding results, which is shown in Dürr and Høyer's algorithm by bounding our time, a classical step in the algorithm.
+I love seeing such fundamental concepts continue to push boundaries.     
 I am constantly in search for collaboration among those who are equally as passionate about quantum computing.
 If you had any suggestions or questions feel free to send me an email.
 
@@ -193,7 +158,7 @@ https://github.com/mridulsar/DurrHoyerLibrary
 
 ## My current challenges in this project:   
 
-1. Validating generalizations I made of 'Implementation Considerations'    
+1. Implementing search for multiple solutions.    
 
 2. Developing alleviation for Big-O in a fluid manner.   
 
