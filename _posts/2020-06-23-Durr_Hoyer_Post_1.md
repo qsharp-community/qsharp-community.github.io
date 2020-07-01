@@ -173,7 +173,7 @@ Our Q# script will be structured as follows:
         open Microsoft.Quantum.Math;
         open Microsoft.Quantum.Core;
         open Microsoft.Quantum.Convert;
-        operation Algorithm(TableLength : Int, RandomIndex : Int) : Unit
+        operation Algorithm_Even(TableLength : Int, RandomIndex : Int) : Unit
         {
             using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
             {
@@ -189,13 +189,34 @@ Our Q# script will be structured as follows:
                     {
                         ApplyToEach(H,Register); // Apply Hadamard to register
 
-                        //QFTLE(LittleEndian(register)); Implemntation for odd number of table entries
-
                         ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
 
                         ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
 
-                        //QFT(BigEndian(register)); Inverse QFT by using BigEndian
+                        ApplyConditionalPhase(LittleEndian(Register)); //Reflect qubits that are 1s
+                    }
+            }
+        }
+        
+        operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Unit
+        {
+            using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
+            {
+                within
+                    {   
+                        let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
+
+                        PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
+
+                        Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
+                    }
+                apply 
+                    {
+                        QFTLE(LittleEndian(register)); // Implemntation for odd number of table entries
+
+                        ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
+
+                        QFT(BigEndian(register)); // Inverse QFT by using BigEndian
 
                         ApplyConditionalPhase(LittleEndian(Register)); //Reflect qubits that are 1s
                     }
@@ -216,6 +237,7 @@ Our Q# script will be structured as follows:
             }
         }
     }
+
     
 ---
 
@@ -284,8 +306,8 @@ Grover's Algorithm is quite literally applied in this algorithm, though a genera
 Lastly, Shor's Algorithm shows off the power of combining classical and quantum systems to achieve outstanding results, which is shown in Dürr and Høyer's algorithm by bounding our time, a classical step in the algorithm.
 I love seeing such fundamental concepts continue to push boundaries.  
 
-This algorithm should be available to use within Q# within the next few weeks as testing is done to ensure usability.
-In the mean time you can test this code for yourself, I would love to see what this community can do with an algorithm like this.
+This algorithm should be available to use within Q# within the next few weeks once testing is done to ensure usability.
+In the mean time you can implement this code for yourself, I would love to see what this community can do with an algorithm like this.
 If you had any suggestions or questions feel free to send me an email.
 
 https://github.com/mridulsar/DurrHoyerLibrary   
