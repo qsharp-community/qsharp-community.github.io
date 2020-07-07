@@ -116,3 +116,9 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+  # Analytics
+analytics:
+  provider               : "google-universal"
+  google:
+    tracking_id          : "UA-169293461-1"
