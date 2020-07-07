@@ -13,6 +13,7 @@ The types of content hosted here are (but are not limited to):
 
 If you want to learn more about the process of adding a project to [qsharp-community](https://qsharp.community), please see our [community contribution guide](./_pages/CONTRIBUTING.md).
 
-We have a community [Gitter](https://gitter.im/qsharp-community/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link), so please ask the community if you have a question about Q# or the QDK, want us to cross-promote or host a blog post, or want to share a cool project you are working on!
+We have a community [Gitter](https://gitter.im/qsharp-community/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link) for quick questions and minimal login and a [Slack](https://join.slack.com/t/qsharp-community/shared_invite/zt-fnsl4u42-u21wdJRzlLF9oAqYTDDtwA) for more detailed discussions, so please use these channels to ask the community!
+They are both great if you have a question about Q# or the QDK, want us to cross-promote or host a blog post, or want to share a cool project you are working on!
 
 > Our community uses the [Contributor Covenant](https://www.contributor-covenant.org/) as a code of conduct, please email [info@quantum.community](mailto:info@quantum.community) if you have any questions or need to report something.
