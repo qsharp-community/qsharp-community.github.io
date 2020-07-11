@@ -173,7 +173,8 @@ Our Q# script will be structured as follows:
 ---
 
 For futher information on how this was derived take a look at 'Tight bounds on quantum searching' [2].
-It is important to not the above algorithm only works for a table with even entries. 
+It is important to note the above algorithm only works for a table with an even number of entries. 
+
 The algorithm breaks down when applying the Hadamard gate as the Hadamard is layed across the diagnoal of a identity matrix which is equal in dimensions to the number of qubits we have. 
 With a bit of math, if we try to lay a 2x2 matrix along an odd dimensioned identity matrix the transformation is not retained.
 To circumvent this we introduce the following implementation, utilizing QFT.
