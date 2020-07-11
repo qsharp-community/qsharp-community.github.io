@@ -24,7 +24,9 @@ I will likely be posting about this algorithm and library more as the library an
 https://github.com/mridulsar/DurrHoyerLibrary.     
 
 ## The Dürr–Høyer Algorithm
-A brief introduction to the Dürr–Høyer Algorithm can be derived from the Quantum Minimum Searching Algorithm outlined in 'A quantum algorithm for finding the minimum' as summarized below. If you would like to read the paper in all of its glory, there is a link here:[(1)].
+The Dürr–Høyer Algorithm was originally proposed in ''A quantum algorithm for finding the minimum
+∗":[(1)], where it was called the 'Quantum Minimum Searching Algorithm'.
+I'll summarize the main result below in case you don't have time to read the paper in all of its glory.
 
 
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
