@@ -37,9 +37,9 @@ After intializing the memory grab the y-th qubit and entangle the state of your 
 This marks all T[j]<T[y].   
 2(b) Apply the quantum exponential searching algorithm [(2)].
 It is a generalized Grovers.   
-2(c) Measure the first register.
-Take this hypothetical minima's index as y'.
-If the integer in the y'-th position is less than the integer in the y-th position set y as y'.   
+  (c) Measure the first register, call that outcome y' which is an index into the table.
+If the integer in the table at index y' is less than the integer at y, set y = y'.<br>
+
 3. Return y.   
 
 The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum.
