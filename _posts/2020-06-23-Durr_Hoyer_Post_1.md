@@ -31,7 +31,8 @@ I'll summarize the main result below in case you don't have time to read the pap
 
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
 2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). The time begins once we start step 2(a), if time equals the expression with N proceed to step c   
-2(a) Intialize the memory as a uniform superposition of qubits. 
+  (a) Initialize the memory as a uniform superposition of qubits.<br>
+
 Each qubit represents an index. 
 After intializing the memory grab the y-th qubit and entangle the state of your register with this y-th qubit according the the Oracle given by Grover. 
 This marks all T[j]<T[y].   
