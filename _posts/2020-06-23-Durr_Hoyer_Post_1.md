@@ -9,18 +9,9 @@ tags:
   - in-development
 ---
 
-## TL;DR
----
-
-    The Dürr-Høyer algorithm takes an unsorted table of integers and 
-    finds the minima in Big-O(sqrt(N)) N being the # of elements in the table.          
-    There is a python host file and a Q# file.  
-    The python file follows the Quantum Minimum Searching Algorithm closely.
-    The Q# file follows the Quantum Exponential Searching Algorithm implementation for finding a unique solution.
-    If you would like to contribute to this project or take a look at some code head over to:   
-    https://github.com/mridulsar/DurrHoyerLibrary 
-
----
+> TL;DR
+> The Dürr-Høyer algorithm takes an unsorted table of integers of length N and finds the minima in O(sqrt(N)).
+> I started a project that implements this algorithm here: [https://github.com/mridulsar/DurrHoyerLibrary](https://github.com/mridulsar/DurrHoyerLibrary), contributions welcome!
 
 ## Introduction
 
@@ -325,4 +316,3 @@ https://github.com/mridulsar/DurrHoyerLibrary
 
 [(1)]:https://arxiv.org/pdf/quant-ph/9607014.pdf
 [(2)]:https://arxiv.org/pdf/quant-ph/9605034.pdf
-
