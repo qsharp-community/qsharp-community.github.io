@@ -43,7 +43,8 @@ If the integer in the table at index y' is less than the integer at y, set y = y
 
 3. Return y.   
 
-The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum.
+The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first look at how to initialize the register. Then we will see how the quantum exponential searching algorithm (QESA) can be implemented to find a unique minimum.
+
 
 In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
 
