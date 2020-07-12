@@ -46,30 +46,34 @@ The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience 
 In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
 
 ```
-   using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
+   // intialize register to number of qubits as there are indices
+   using ((Register) = (Qubit[TableLength])) 
    { 
-      PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
-                    
-      let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex (which is intialized in our python host script using numpy.uniform.random()) and set it aside
-
-      Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
+      // Create Uniform Superposition of all indices
+      PrepareUniformSuperposition(TableLength,LittleEndian(Register)); 
+      // Grab the qubit in the RandomIndex (which is intialized in our python host script using numpy.uniform.random()) and set it aside              
+      let Marker = Register[RandomIndex]; 
+      // Apply Oracle to flip all states that are T[j]<T[y]
+      Controlled Z(Register,Marker); 
    }
 ```
 
 Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. 
 The QESA algorithm is a generalized Grover's search characterized by H,S_0,H^-1,S_A for an even number of table elements. If we have an odd number of table elements we use QFT,S_0,QFT^-1,S_A where QFT is the approixmate Fourier transform as given by Kitaev [(3)].
 
-H is defined as a Hadamard transform, S_0 flips our qubit if it is 0, H^-1 is inverse of Hadamard conjugate transpose, S_A flips out qubit if it is 1.
+H is defined as a Hadamard transform, S_0 flips our qubit if it is 0, H^-1 is inverse of Hadamard- the conjugate transpose, S_A flips out qubit if it is 1.
 
-We utilize the register we were working with earlier and apply a T' transform, this is stated to simply be the Hadmard. 
+We utilize the register we were working with earlier and apply a H transform, this is stated to simply be the Hadmard. 
 
 ```
-   ApplyToEach(H,Register); // Apply Hadamard to register
+   // Apply Hadamard to register
+   ApplyToEach(H,Register); 
 ```
 
 We then apply a conditional phase shift if the qubit is 0.    
 ```
-   ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s 
+   // Reflect qubits that are 0s
+   ApplyConditionalPhase_0(LittleEndian(Register));  
    
    operation ApplyConditionalPhase_0(register: LittleEndian) : Unit is Adj + Ctl
    {
@@ -83,12 +87,14 @@ From here we apply the inverse of the Hadmard, this is just the conjugate transp
 This can be implemented be calling the Adjunct of Hadamard.  
 
 ```
-   ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
+   // Apply Adjunct Hadamard to register
+   ApplyToEachA(H,Register); 
 ```
 The last step is another conditional phase shift, though it is applied if the qubit is 1.
 
 ```
-   ApplyConditionalPhase(LittleEndian(Register)); // Reflect qubits that are 1s
+   // Reflect qubits that are 1s
+   ApplyConditionalPhase(LittleEndian(Register)); 
    
    operation ApplyConditionalPhase(register : LittleEndian) : Unit is Adj + Ctl 
    {
