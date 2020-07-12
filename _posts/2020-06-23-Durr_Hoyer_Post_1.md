@@ -59,7 +59,9 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
       }
 ---
 
-Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows:  
+Step 2(a) is now complete, now we must figure out how to apply the QESA algorithm.
+It is stated as follows:  
+
 
 
 
