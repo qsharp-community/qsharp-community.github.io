@@ -30,7 +30,7 @@ I'll summarize the main result below in case you don't have time to read the pap
 
 
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
-2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). The time begins once we start step 2(a), if time equals the expression with N proceed to step c. <br>  
+2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). Time can be easily captured in python using time.clock() whcih returns wall clock time since program was started. The time begins once we start step 2(a), if time equals the expression with N proceed to step c. <br>  
    2(a) Initialize the memory as a uniform superposition of qubits.<br>
 Each qubit represents an index. 
 After intializing the memory grab the y-th qubit and entangle the state of your register with this y-th qubit according the the Oracle given by Grover. 
@@ -48,22 +48,16 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
 ---
 
     using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
-    {
-      within
-      {   
-        // Create Uniform Superposition of all indices
-        PrepareUniformSuperposition(TableLength, LittleEndian(Register)); 
-
+    { 
+       PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
                     
-        let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
+       let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
 
-        Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
+       Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
       }
 ---
 
-Step 2(a) is now complete, now we must figure out how to apply the QESA algorithm.
-It is stated as follows:  
-
+Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows:  
 
 
 
@@ -73,10 +67,11 @@ It is stated as follows:
 
 We utilize the register we were working with earlier and apply a T' transform, this is stated to simply be the Hadmard. 
 
----
+//code 
+
     ApplyToEach(H,Register); // Apply Hadamard to register
     
----
+//code
 We then apply a conditional phase shift if the qubit is 0.    
 
     ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
