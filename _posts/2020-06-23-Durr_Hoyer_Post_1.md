@@ -11,7 +11,7 @@ tags:
 
 > TL;DR
 > The Dürr-Høyer algorithm takes an unsorted table of integers of length N and finds the minima in O(sqrt(N)).
-> I started a project that implements this algorithm here: [https://github.com/mridulsar/DurrHoyerLibrary](https://github.com/mridulsar/DurrHoyerLibrary), contributions welcome!
+> I started a project that implements this algorithm here : [https://github.com/mridulsar/DurrHoyerLibrary](https://github.com/mridulsar/DurrHoyerLibrary), contributions welcome!
 
 ## Introduction
 
@@ -24,8 +24,7 @@ I will likely be posting about this algorithm and library more as the library an
 https://github.com/mridulsar/DurrHoyerLibrary.     
 
 ## The Dürr–Høyer Algorithm
-Say we have a table with N unsorted items where you want o find the minimul value stored in this table. The Dürr–Høyer Algorithm helps us solve this problem. It was originally proposed in ''A quantum algorithm for finding the minimum
-∗":[(1)], where it was called the 'Quantum Minimum Searching Algorithm'.
+Say we have a table with N unsorted items where you want o find the minimul value stored in this table. The Dürr–Høyer Algorithm helps us solve this problem. It was originally proposed in ''A quantum algorithm for finding the minimum":[(1)], where it was called the 'Quantum Minimum Searching Algorithm'.
 I'll summarize the main result below in case you don't have time to read the paper in all of its glory.
 
 
