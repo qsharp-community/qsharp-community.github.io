@@ -24,27 +24,24 @@ I will likely be posting about this algorithm and library more as the library an
 https://github.com/mridulsar/DurrHoyerLibrary.     
 
 ## The Dürr–Høyer Algorithm
-The Dürr–Høyer Algorithm was originally proposed in ''A quantum algorithm for finding the minimum
+Say we have a table with N unsorted items where you want o find the minimul value stored in this table. The Dürr–Høyer Algorithm helps us solve this problem. It was originally proposed in ''A quantum algorithm for finding the minimum
 ∗":[(1)], where it was called the 'Quantum Minimum Searching Algorithm'.
 I'll summarize the main result below in case you don't have time to read the paper in all of its glory.
 
 
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
-2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). The time begins once we start step 2(a), if time equals the expression with N proceed to step c   
-  (a) Initialize the memory as a uniform superposition of qubits.<br>
-
+2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). The time begins once we start step 2(a), if time equals the expression with N proceed to step c. <br>  
+   2(a) Initialize the memory as a uniform superposition of qubits.<br>
 Each qubit represents an index. 
 After intializing the memory grab the y-th qubit and entangle the state of your register with this y-th qubit according the the Oracle given by Grover. 
-This marks all T[j]<T[y].   
-2(b) Apply the quantum exponential searching algorithm [(2)].
-It is a generalized Grovers.   
-  (c) Measure the first register, call that outcome y' which is an index into the table.
+This marks all T[j]<T[y].<br>
+   2(b) Apply the quantum exponential searching algorithm [(2)], which is a generalized Grover's search.<br>
+   2(c) Measure the first register, call that outcome y' which is an index into the table.
 If the integer in the table at index y' is less than the integer at y, set y = y'.<br>
 
 3. Return y.   
 
-The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first look at how to initialize the register. Then we will see how the quantum exponential searching algorithm (QESA) can be implemented to find a unique minimum.
-
+The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum.
 
 In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
 
