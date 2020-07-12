@@ -45,7 +45,7 @@ The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience 
 
 In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
 
----
+```
 
     using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
     { 
@@ -55,7 +55,7 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
 
        Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
       }
----
+```
 
 Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows:  
 
@@ -67,16 +67,17 @@ Step 2(a) has been stasified. Now we must figure out how to apply the QESA algor
 
 We utilize the register we were working with earlier and apply a T' transform, this is stated to simply be the Hadmard. 
 
-//code 
+```
 
     ApplyToEach(H,Register); // Apply Hadamard to register
     
-//code
+```
+
 We then apply a conditional phase shift if the qubit is 0.    
 
     ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
     
----
+```
 
     operation ApplyConditionalPhase_0(register: LittleEndian) : Unit is Adj + Ctl
     {
@@ -85,23 +86,23 @@ We then apply a conditional phase shift if the qubit is 0.
             (ControlledOnInt(0,Z))(register!,aux); // If qubit is 0 flip it!
         }
     }
----
+```
 
 From here we apply the inverse of the Hadmard, this is just the conjugate transpose since Hadamard is unitary. 
 This can be implemented be calling the Adjunct of Hadamard.  
 
----
+```
 
     ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
     
----
+```
 
 The last step is another conditional phase shift, though it is applied if the qubit is 1.
 
----
+```
 
     ApplyConditionalPhase(LittleEndian(Register)); // Reflect qubits that are 1s
-    ---
+    ```
     operation ApplyConditionalPhase(register : LittleEndian) : Unit is Adj + Ctl 
     {
         using (aux = Qubit()) 
@@ -110,11 +111,11 @@ The last step is another conditional phase shift, though it is applied if the qu
         }
     }
 
----
+```
 
 Our Q# script will be structured as follows:
 
----
+```
 
     namespace QESA {
         open Microsoft.Quantum.Intrinsic;
@@ -168,7 +169,7 @@ Our Q# script will be structured as follows:
     }
 
     
----
+```
 
 For futher information on how this was derived take a look at 'Tight bounds on quantum searching' [2].
 It is important to note the above algorithm only works for a table with an even number of entries. 
@@ -206,8 +207,7 @@ Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,
 
 Here is the python host that will apply the conditions of QMSA while using QESA.
 
----
-
+```
     class DH(object):
 
       def __init__(self,table):
@@ -253,7 +253,7 @@ Here is the python host that will apply the conditions of QMSA while using QESA.
           return y                                                      
 
 
-------------------
+```
 
 ### Motivation
 The motivation behind this project is to provide open source functionality. 
