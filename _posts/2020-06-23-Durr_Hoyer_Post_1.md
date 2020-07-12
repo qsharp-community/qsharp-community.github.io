@@ -51,7 +51,9 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
     {
       within
       {   
-        PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
+        // Create Uniform Superposition of all indices
+        PrepareUniformSuperposition(TableLength, LittleEndian(Register)); 
+
                     
         let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
 
