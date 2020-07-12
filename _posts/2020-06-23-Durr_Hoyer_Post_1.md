@@ -50,19 +50,16 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
    { 
       PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
                     
-      let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
+      let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex (which is intialized in our python host script using numpy.uniform.random()) and set it aside
 
       Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
    }
 ```
 
-Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows:  
+Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. 
+The QESA algorithm is a generalized Grover's search characterized by H,S_0,H^-1,S_A for an even number of table elements. If we have an odd number of table elements we use QFT,S_0,QFT^-1,S_A where QFT is the approixmate Fourier transform as given by Kitaev [(3)].
 
-
-
-![implement](/assets/images/DurrHoyer-Implementation.JPG)    
-
-
+H is defined as a Hadamard transform, S_0 flips our qubit if it is 0, H^-1 is inverse of Hadamard conjugate transpose, S_A flips out qubit if it is 1.
 
 We utilize the register we were working with earlier and apply a T' transform, this is stated to simply be the Hadmard. 
 
@@ -118,41 +115,45 @@ Our Q# script will be structured as follows:
         open Microsoft.Quantum.Convert;
         operation Algorithm_Even(TableLength : Int, RandomIndex : Int) : Unit
         {
-            using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
+            // intialize register to number of qubits as there are indices
+            using ((Register) = (Qubit[TableLength])) 
             {
-                within
+               within
                     {   
-                        let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
-
-                        PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
-
-                        Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
+                        // Grab the qubit in the RandomIndex and set it aside
+                        let Marker = Register[RandomIndex]; 
+                        // Create Uniform Superposition of all indices
+                        PrepareUniformSuperposition(TableLength,LittleEndian(Register)); 
+                        // Apply Oracle to flip all states that are T[j]<T[y]
+                        Controlled Z(Register,Marker); 
                     }
                 apply 
                     {
-                        ApplyToEach(H,Register); // Apply Hadamard to register
-
-                        ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
-
-                        ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
-
-                        ApplyConditionalPhase(LittleEndian(Register)); //Reflect qubits that are 1s
+                        // Apply Hadamard to register
+                        ApplyToEach(H,Register); 
+                        // Reflect qubits that are 0s
+                        ApplyConditionalPhase_0(LittleEndian(Register)); 
+                        // Apply Adjunct Hadamard to register
+                        ApplyToEachA(H,Register); 
+                        // Reflect qubits that are 1s
+                        ApplyConditionalPhase(LittleEndian(Register)); 
                     }
             }
         }
-        
+        // If qubit is 0 flip it!
         operation ApplyConditionalPhase_0(register: LittleEndian) : Unit is Adj + Ctl
         {
             using (aux = Qubit()) 
             {
-                (ControlledOnInt(0,Z))(register!,aux); // If qubit is 0 flip it!
+                (ControlledOnInt(0,Z))(register!,aux); 
             }
         }
+        // If qubit is 1 flip it!
         operation ApplyConditionalPhase(register : LittleEndian) : Unit is Adj + Ctl 
         {
             using (aux = Qubit()) 
             {
-                (ControlledOnInt(1,Z))(register!,aux); // If qubit is 1 flip it!
+                (ControlledOnInt(1,Z))(register!,aux); 
             }
         }
     }
@@ -169,25 +170,28 @@ To circumvent this we introduce the following implementation, utilizing QFT.
 ```
         operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Unit
         {
-            using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
+            // intialize register to number of qubits as there are indices
+            using ((Register) = (Qubit[TableLength])) 
             {
-                within
+               within
                     {   
-                        let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
-
-                        PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
-
-                        Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
+                        // Grab the qubit in the RandomIndex and set it aside
+                        let Marker = Register[RandomIndex]; 
+                        // Create Uniform Superposition of all indices
+                        PrepareUniformSuperposition(TableLength,LittleEndian(Register)); 
+                        // Apply Oracle to flip all states that are T[j]<T[y]
+                        Controlled Z(Register,Marker); 
                     }
                 apply 
                     {
-                        QFTLE(LittleEndian(register)); // Implemntation for odd number of table entries
-
-                        ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
-
-                        QFT(BigEndian(register)); // Inverse QFT by using BigEndian
-
-                        ApplyConditionalPhase(LittleEndian(Register)); //Reflect qubits that are 1s
+                        // Implemntation for odd number of table entries
+                        QFTLE(LittleEndian(register)); 
+                        // Reflect qubits that are 0s
+                        ApplyConditionalPhase_0(LittleEndian(Register)); 
+                        // Inverse QFT by using BigEndian
+                        QFT(BigEndian(register)); 
+                        //Reflect qubits that are 1s
+                        ApplyConditionalPhase(LittleEndian(Register)); 
                     }
             }
         }
@@ -200,12 +204,12 @@ Here is the python host that will apply the conditions of QMSA while using QESA.
     class DH(object):
 
       def __init__(self,table):
-
-          self.table = np.ndarray.flatten(table) # Flatten table
-
-          self.N= len(self.table) # Number of elements in the table
-
-          self.y = int(np.random.uniform(0,self.N-1)) # Choose our random index
+          # Flatten table
+          self.table = np.ndarray.flatten(table) 
+          # Number of elements in the table
+          self.N= len(self.table) 
+          # Choose our random index
+          self.y = int(np.random.uniform(0,self.N-1)) 
 
       def QMSA(self,N,y,table):
       
@@ -216,29 +220,28 @@ Here is the python host that will apply the conditions of QMSA while using QESA.
           t = self.table
 
           y_prime = N
-
-          time_limit = (22.5*np.sqrt(N)+1.4*np.log(N)**2) # Time limit as specified in QMSA
+          # Time limit as specified in QMSA
+          time_limit = (22.5*np.sqrt(N)+1.4*np.log(N)**2) 
 
           while time.clock() < time_limit:    
 
               for i in range(N):
 
                   while t[y] < t[y_prime]:
-
-                      if N // 2 : # Implementation of odd and even functionality
+                      # Implementation of odd and even functionality
+                      if N // 2 : 
 
                           y_prime= Algorithm.simulate(N,y)
 
                       else: 
 
                           y_prime=Algorithm_Odd.simulate(N,y)
-
-                  if t[y_prime] < t[y]: # Check if we have found our minimum
-
-                      i=0 # reset loop if found
-
-              y = y_prime #store index with minimum
-
+                  # Check if we have found our minimum
+                  if t[y_prime] < t[y]: 
+                      # reset loop if found
+                      i=0 
+              #store index with minimum
+              y = y_prime 
           return y                                                      
 
 
@@ -306,3 +309,4 @@ https://github.com/mridulsar/DurrHoyerLibrary
 
 [(1)]:https://arxiv.org/pdf/quant-ph/9607014.pdf
 [(2)]:https://arxiv.org/pdf/quant-ph/9605034.pdf
+[(3)]: Kitaev,  A. Yu.,  “Quantum measurements and theAbelian stabilizer problem”, manuscript quant-ph/9511-026 (1995).
