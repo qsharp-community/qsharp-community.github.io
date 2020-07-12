@@ -46,15 +46,14 @@ The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience 
 In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
 
 ```
-
-    using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
-    { 
-       PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
+   using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
+   { 
+      PrepareUniformSuperposition(TableLength,LittleEndian(Register)); // Create Uniform Superposition of all indices
                     
-       let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
+      let Marker = Register[RandomIndex]; // Grab the qubit in the RandomIndex and set it aside
 
-       Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
-      }
+      Controlled Z(Register,Marker); // Apply Oracle to flip all states that are T[j]<T[y]
+   }
 ```
 
 Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. It is stated as follows:  
@@ -68,49 +67,39 @@ Step 2(a) has been stasified. Now we must figure out how to apply the QESA algor
 We utilize the register we were working with earlier and apply a T' transform, this is stated to simply be the Hadmard. 
 
 ```
-
-    ApplyToEach(H,Register); // Apply Hadamard to register
-    
+   ApplyToEach(H,Register); // Apply Hadamard to register
 ```
 
 We then apply a conditional phase shift if the qubit is 0.    
-
-    ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s
-    
 ```
-
-    operation ApplyConditionalPhase_0(register: LittleEndian) : Unit is Adj + Ctl
-    {
-        using (aux = Qubit()) 
-        {
-            (ControlledOnInt(0,Z))(register!,aux); // If qubit is 0 flip it!
-        }
-    }
+   ApplyConditionalPhase_0(LittleEndian(Register)); // Reflect qubits that are 0s 
+   
+   operation ApplyConditionalPhase_0(register: LittleEndian) : Unit is Adj + Ctl
+   {
+       using (aux = Qubit()) 
+       {
+           (ControlledOnInt(0,Z))(register!,aux); // If qubit is 0 flip it!
+       }
+   }
 ```
-
 From here we apply the inverse of the Hadmard, this is just the conjugate transpose since Hadamard is unitary. 
 This can be implemented be calling the Adjunct of Hadamard.  
 
 ```
-
-    ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
-    
+   ApplyToEachA(H,Register); // Apply Adjunct Hadamard to register
 ```
-
 The last step is another conditional phase shift, though it is applied if the qubit is 1.
 
 ```
-
-    ApplyConditionalPhase(LittleEndian(Register)); // Reflect qubits that are 1s
-    ```
-    operation ApplyConditionalPhase(register : LittleEndian) : Unit is Adj + Ctl 
-    {
-        using (aux = Qubit()) 
-        {
-            (ControlledOnInt(1,Z))(register!,aux); // If qubit is 1 flip it!
-        }
-    }
-
+   ApplyConditionalPhase(LittleEndian(Register)); // Reflect qubits that are 1s
+   
+   operation ApplyConditionalPhase(register : LittleEndian) : Unit is Adj + Ctl 
+   {
+       using (aux = Qubit()) 
+       {
+           (ControlledOnInt(1,Z))(register!,aux); // If qubit is 1 flip it!
+       }
+   }
 ```
 
 Our Q# script will be structured as follows:
@@ -177,7 +166,7 @@ It is important to note the above algorithm only works for a table with an even 
 The algorithm breaks down when applying the Hadamard gate as the Hadamard is layed across the diagnoal of a identity matrix which is equal in dimensions to the number of qubits we have. 
 With a bit of math, if we try to lay a 2x2 matrix along an odd dimensioned identity matrix the transformation is not retained.
 To circumvent this we introduce the following implementation, utilizing QFT.
-
+```
         operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Unit
         {
             using ((Register) = (Qubit[TableLength])) // intialize register to number of qubits as there are indices
@@ -202,7 +191,7 @@ To circumvent this we introduce the following implementation, utilizing QFT.
                     }
             }
         }
-
+```
 Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,RandomIndex) is iterated on until we find a suitable y' or we simply hit our time limit. The true stars of this algorithm are the time limit, which guarantees O(sqrt(N)), the generalized Grovers algorithm given in QESA, which provides for easy implementation and has O(1) for each iteration, and lastly, the oracle function which marks our states, which along with our intialization of qubits has O(log(n)).
 
 Here is the python host that will apply the conditions of QMSA while using QESA.
@@ -309,9 +298,9 @@ https://github.com/mridulsar/DurrHoyerLibrary
 
 ## My current challenges in this project:   
 
-1. Implementing search for multiple solutions.    
+1. Implementing generalized Grover's search for multiple solutions   
 
-2. Developing alleviation for Big-O in a fluid manner.   
+2. Developing feature for users to control the time limit that QMSA runs for
 
 ------------------
 
