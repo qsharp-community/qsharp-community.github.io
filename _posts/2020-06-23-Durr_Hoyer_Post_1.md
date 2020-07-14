@@ -314,4 +314,4 @@ https://github.com/mridulsar/DurrHoyerLibrary
 
 [(1)]:https://arxiv.org/pdf/quant-ph/9607014.pdf
 [(2)]:https://arxiv.org/pdf/quant-ph/9605034.pdf
-[(3)]: Kitaev,  A. Yu.,  “Quantum measurements and theAbelian stabilizer problem”, manuscript quant-ph/9511-026 (1995).
+[(3)]: Kitaev,  A. Yu.,  “Quantum measurements and the Abelian stabilizer problem”, manuscript quant-ph/9511-026 (1995).
