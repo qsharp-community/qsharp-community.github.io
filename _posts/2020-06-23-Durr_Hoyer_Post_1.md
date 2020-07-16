@@ -59,7 +59,7 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
 
 Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. 
 For the following circuits assume our Random Index is 0. 
-![2 items in a list](/assets/images/circuit for 2 qubits random value 0.JPG)
+![2 items in a list](/assets/images/2-item-list.gif)
 The QESA algorithm is a generalized Grover's search characterized by the following circuit for an even number of table elements.     
 ![3 items in a list](/assets/images/3-item-list.gif)
 If we have an odd number of table elements we use this circuit, where QFT is the approixmate Fourier transform as given by Kitaev [(3)].    
