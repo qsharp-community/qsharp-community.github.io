@@ -2,7 +2,7 @@
 name: Project Idea
 about: Suggest an idea for the Q# community to work on!
 title: ''
-labels: project-idea
+labels: ''
 assignees: ''
 
 ---
