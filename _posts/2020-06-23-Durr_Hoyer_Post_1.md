@@ -58,10 +58,13 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
 ```
 
 Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. 
-https://algassert.com/quirk#circuit=%7B%22cols%22%3A%5B%5B%22H%22%2C%22H%22%2C%22H%22%5D%2C%5B%22%E2%80%A2%22%2C1%2C%22X%22%5D%2C%5B%22H%22%2C%22H%22%5D%2C%5B%22X%22%2C%22X%22%5D%2C%5B%22H%22%2C%22H%22%5D%2C%5B%22X%22%2C%22X%22%5D%5D%2C%22init%22%3A%5B0%2C1%2C%22-%22%5D%7D
-The QESA algorithm is a generalized Grover's search characterized by H,S_0,H^-1,S_A for an even number of table elements. If we have an odd number of table elements we use QFT,S_0,QFT^-1,S_A where QFT is the approixmate Fourier transform as given by Kitaev [(3)].
+For the following circuits assume our Random Index is 0. 
+![2 items in a list](/assets/images/circuit for 2 qubits random value 0.JPG)
+The QESA algorithm is a generalized Grover's search characterized by the following circuit for an even number of table elements.     
+![3 items in a list](/assets/images/circuit for 3 qubits random value 0.JPG)
+If we have an odd number of table elements we use this circuit, where QFT is the approixmate Fourier transform as given by Kitaev [(3)].    
 
-H is defined as a Hadamard transform, S_0 flips our qubit if it is 0, H^-1 is inverse of Hadamard- the conjugate transpose, S_A flips out qubit if it is 1.
+Here is a nice visual of the circuit running through various LittleEndian Orderings
 
 We utilize the register we were working with earlier and apply a H transform, this is stated to simply be the Hadmard. 
 
