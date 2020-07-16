@@ -66,8 +66,7 @@ If we have an odd number of table elements we use this circuit, where QFT is the
 
 ![3 items in a list](/assets/images/3-item-list.gif)
 
-Here is a nice visual of the circuit running through various LittleEndian Orderings
-
+Lets break down whats going on here.
 We utilize the register we were working with earlier and apply a H transform, this is stated to simply be the Hadmard. 
 
 ```
