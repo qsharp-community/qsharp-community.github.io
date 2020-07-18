@@ -13,21 +13,21 @@ tags:
 > The Dürr-Høyer algorithm takes an unsorted table of integers of length N and finds the minima in O(sqrt(N)).
 > I started a project that implements this algorithm here : [https://github.com/mridulsar/DurrHoyerLibrary](https://github.com/mridulsar/DurrHoyerLibrary), contributions welcome!
 
-## Introduction
+### Introduction
 
 Hello all! 
-My name is Mridul Sarkar, and I am an undergraduate at University of California Davis studying Scientific and Mathematical Computation.
+My name is Mridul Sarkar, and I am an undergraduate at University of California Davis studying Mathematics and Scientific Computation.
 I wanted to share with the community my experiences in learning about the Dürr–Høyer algorithim and creating a library for Q# implementing it.
-This project has pushed me and is still pushing me outside of my comfort zone, but learning Q# while slowly refining my quantum mechanics has been a rewarding experience. 
+This project has pushed me and is still pushing me outside of my comfort zone, but learning Q# while slowly refining my quantum intution has been a rewarding experience. 
 I would like to pass on what I have seen and understood in that time, as well as ask the community for feedback. 
 I will likely be posting about this algorithm and library more as the library and my understanding continues developing.   
 https://github.com/mridulsar/DurrHoyerLibrary.     
 
-## The Dürr–Høyer Algorithm
-Say we have a table with N unsorted items where you want o find the minimul value stored in this table. The Dürr–Høyer Algorithm helps us solve this problem. It was originally proposed in ''A quantum algorithm for finding the minimum":[(1)], where it was called the 'Quantum Minimum Searching Algorithm'.
-I'll summarize the main result below in case you don't have time to read the paper in all of its glory.
+### The Dürr–Høyer Algorithm
+Say we have a table with N unsorted items where you want o find the minimul value stored in this table. The Dürr–Høyer Algorithm helps us solve this problem. It was originally proposed in "A quantum algorithm for finding the minimum" [(1)], where it was called the 'Quantum Minimum Searching Algorithm'.
+I'll summarize the main ideas below in case you don't have time to read the paper in all of its glory.
 
-
+## QMSA
 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length   
 2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). Time can be easily captured in python using time.clock() whcih returns wall clock time since program was started. The time begins once we start step 2(a), if time equals the expression with N proceed to step c. <br>  
    2(a) Initialize the memory as a uniform superposition of qubits.<br>
@@ -39,7 +39,7 @@ This marks all T[j]<T[y].<br>
 If the integer in the table at index y' is less than the integer at y, set y = y'.<br>
 
 3. Return y.   
-
+## Implementing QMSA
 The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum.
 
 In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
@@ -59,6 +59,7 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
 
 Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. 
 For the following circuits assume our Random Index is 0. 
+# QESA
 The QESA algorithm is a generalized Grover's search characterized by the following circuit for an even number of table elements.     
 
 ![2 items in a list](/assets/images/2-item-list.gif)
@@ -108,7 +109,7 @@ The last step is another conditional phase shift, though it is applied if the qu
        }
    }
 ```
-
+# QESA Script
 Our Q# script will be structured as follows:
 
 ```
@@ -209,7 +210,7 @@ To circumvent this we introduce the following implementation, utilizing QFT.
 Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,RandomIndex) is iterated on until we find a suitable y' or we simply hit our time limit. The true stars of this algorithm are the time limit, which guarantees O(sqrt(N)), the generalized Grovers algorithm given in QESA, which provides for easy implementation and has O(1) for each iteration, and lastly, the oracle function which marks our states, which along with our intialization of qubits has O(log(n)).
 
 Here is the python host that will apply the conditions of QMSA while using QESA.
-
+## QMSA Script
 ```
     class DH(object):
 
