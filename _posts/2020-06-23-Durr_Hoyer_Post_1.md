@@ -64,7 +64,7 @@ The QESA algorithm is a generalized Grover's search characterized by the followi
 We can visuailze our algorithm with a circuit design. 
 Below is the QESA circuit.   
 
-![QESA circuit](/assests/images/QESA.JPG)
+![QESA circuit](/assets/images/QESA.JPG)
 
 Here is the QESA circuit treated as a gate with the intialization on qubits as mentioned above. 
 
