@@ -61,11 +61,12 @@ Step 2(a) has been stasified. Now we must figure out how to apply the QESA algor
 For the following circuits assume our Random Index is 0. 
 #### QESA
 The QESA algorithm is a generalized Grover's search characterized by the following circuit for an even number of table elements.     
-
+We can visuailze our algorithm with a circuit design. 
+Below is the QESA circuit. 
+![QESA circuit](/assests/images/QESA.jpeg)
+Here is the QESA circuit treated as a gate with the intialization on qubits as mentioned above. 
 ![2 items in a list](/assets/images/2-item-list.gif)
-If we have an odd number of table elements we use this circuit, where QFT is the approixmate Fourier transform as given by Kitaev [(3)].    
 
-![3 items in a list](/assets/images/3-item-list.gif)
 
 Lets break down whats going on here.
 We utilize the register we were working with earlier and apply a H transform, this is stated to simply be the Hadmard. 
