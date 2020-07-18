@@ -63,7 +63,7 @@ For the following circuits assume our Random Index is 0.
 The QESA algorithm is a generalized Grover's search characterized by the following circuit for an even number of table elements.     
 We can visuailze our algorithm with a circuit design. 
 Below is the QESA circuit. 
-![QESA circuit](/assests/images/QESA.jpeg)
+![QESA circuit](/assests/images/QESA.JPG)
 Here is the QESA circuit treated as a gate with the intialization on qubits as mentioned above. 
 ![2 items in a list](/assets/images/2-item-list.gif)
 
@@ -119,7 +119,7 @@ Our Q# script will be structured as follows:
         open Microsoft.Quantum.Math;
         open Microsoft.Quantum.Core;
         open Microsoft.Quantum.Convert;
-        operation Algorithm_Even(TableLength : Int, RandomIndex : Int) : Unit
+        operation Algorithm_Even(TableLength : Int, RandomIndex : Int) : Int
     {
         // intialize register to number of qubits as there are indices
         using ((Register) = (Qubit[TableLength])) 
@@ -149,7 +149,7 @@ Our Q# script will be structured as follows:
     }
     
 
-    operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Unit
+    operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Int
     {
         // intialize register to number of qubits as there are indices
         using ((Register) = (Qubit[TableLength])) 
@@ -202,7 +202,7 @@ With a bit of math, if we try to lay a 2x2 matrix along an odd dimensioned ident
 To circumvent this we introduce the following implementation, utilizing QFT.    
 #### QESA special case
 ```
-         operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Unit
+         operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Int
     {
         // intialize register to number of qubits as there are indices
         using ((Register) = (Qubit[TableLength])) 
