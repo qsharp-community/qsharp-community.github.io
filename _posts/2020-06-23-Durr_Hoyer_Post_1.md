@@ -310,8 +310,9 @@ https://github.com/mridulsar/DurrHoyerLibrary
 ## My Background
 I began my journey from math to computers through my passion for ML algorithms, where I stumbled upon quantum computing. 
 I was instantly pulled in by the elegant algorithms and proposed efficiency.
-Recently, I started looking into quantum machine learning where you can model nodes of neural networks as qubits. 
+About a year ago, I started looking into a model that treats nodes of neural networks as qubits. 
 I took a deep dive into the research papers and found myself amazed by what was out there.
+Realizing I had hunger to learn more I looked for online courses in quantum computing.
 I began with a Coursera course from St. Petersburg University on quantum computing with detail on quantum algorithm design and quantum computer architecture. 
 From here I tinkered with Q# and developed basic algorithms that I previously learned.
 I found Dürr and Høyer's paper and saw it as an fusion of Duestch's, Shor's, and Grover's Algorithm; a perfect next step for me.
@@ -340,9 +341,9 @@ https://github.com/mridulsar/DurrHoyerLibrary
 
 ## My current challenges in this project:   
 
-1. Implementing generalized Grover's search for multiple solutions   
+1. Implementing QESA for multiple solutions   
 
-2. Developing feature for users to control the time limit that QMSA runs for
+2. Fluid QMSA time manipulation
 
 ------------------
 
