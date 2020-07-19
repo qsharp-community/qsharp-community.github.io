@@ -215,7 +215,7 @@ QESA special case
 Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,RandomIndex) is iterated on until we find a suitable y' or we simply hit our time limit. The true stars of this algorithm are the time limit, which guarantees O(sqrt(N)), the generalized Grovers algorithm given in QESA, which provides for easy implementation and has O(1) for each iteration, and lastly, the oracle function which marks our states, which along with our intialization of qubits has O(log(n)).
 
 Here is the python host that will apply the conditions of QMSA while using QESA.
-QMSA Script
+## QMSA Script
 ```
     class DH(object):
 
