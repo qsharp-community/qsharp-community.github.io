@@ -180,7 +180,7 @@ Our Q# script will be structured as follows:
 For futher information on how this was derived take a look at 'Tight bounds on quantum searching' [2]. It is important to note the above algorithm only works for a table with an even number of entries.
 
 The algorithm breaks down when applying the Hadamard gate as the Hadamard is layed across the diagnoal of a identity matrix which is equal in dimensions to the number of qubits we have. With a bit of math, if we try to lay a 2x2 matrix along an odd dimensioned identity matrix the transformation is not retained. To circumvent this we introduce the following implementation, utilizing QFT.
-QESA special case
+### QESA special case
 ```
          operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Int
     {
@@ -215,7 +215,7 @@ QESA special case
 Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,RandomIndex) is iterated on until we find a suitable y' or we simply hit our time limit. The true stars of this algorithm are the time limit, which guarantees O(sqrt(N)), the generalized Grovers algorithm given in QESA, which provides for easy implementation and has O(1) for each iteration, and lastly, the oracle function which marks our states, which along with our intialization of qubits has O(log(n)).
 
 Here is the python host that will apply the conditions of QMSA while using QESA.
-## QMSA Script
+### QMSA Script
 ```
     class DH(object):
 
