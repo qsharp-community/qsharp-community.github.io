@@ -38,7 +38,7 @@ Say we have a table with N unsorted items where you want o find the minimul valu
 The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum.
 
 In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
-
+```
    // intialize register to number of qubits as there are indices
    using ((Register) = (Qubit[TableLength])) 
    { 
@@ -49,7 +49,7 @@ In order to intialize the register we pepare a uniform superposition of qubits, 
       // Apply Oracle to flip all states that are T[j]<T[y]
       Controlled Z(Register,Marker); 
    }
-
+```
 Step 2(a) has been stasified. Now we must figure out how to apply the QESA algorithm. For the following circuits assume our Random Index is 0.
 QESA
 
@@ -63,12 +63,12 @@ Here is the QESA circuit treated as a gate with the intialization on qubits as m
 2 items in a list
 
 Lets break down whats going on here. We utilize the register we were working with earlier and apply a H transform, this is stated to simply be the Hadmard.
-
+```
    // Apply Hadamard to register
    ApplyToEach(H,Register); 
-
+```
 We then apply a conditional phase shift if the qubit is 0.
-
+```
    // Reflect qubits that are 0s
    ApplyConditionalPhase_0(LittleEndian(Register));  
    
@@ -80,19 +80,19 @@ We then apply a conditional phase shift if the qubit is 0.
             (ControlledOnInt(0,X))(register!,aux); 
         }
     }
-
+```
 From here we apply the inverse of the Hadmard, this is just the conjugate transpose since Hadamard is unitary. This can be implemented be calling the Adjunct of Hadamard.
-
+```
    // Apply Adjunct Hadamard to register
    ApplyToEachA(H,Register); 
-
+```
 The last step is another conditional phase shift, though it is applied if the qubit is 1. This can be done by using the Z gate. The Z gate takes our qubit in and checks if it is |0> or |1>. If |0> leave it be. If |1> map to |0>.
 
 ### QESA Script
 
 Our Q# script will be structured as follows:
 
-
+```
     namespace QESA {
         open Microsoft.Quantum.Intrinsic;
         open Microsoft.Quantum.Diagnostics;
@@ -175,13 +175,13 @@ Our Q# script will be structured as follows:
 
 }
 
-    
+```   
 
 For futher information on how this was derived take a look at 'Tight bounds on quantum searching' [2]. It is important to note the above algorithm only works for a table with an even number of entries.
 
 The algorithm breaks down when applying the Hadamard gate as the Hadamard is layed across the diagnoal of a identity matrix which is equal in dimensions to the number of qubits we have. With a bit of math, if we try to lay a 2x2 matrix along an odd dimensioned identity matrix the transformation is not retained. To circumvent this we introduce the following implementation, utilizing QFT.
 QESA special case
-
+```
          operation Algorithm_Odd(TableLength : Int, RandomIndex : Int) : Int
     {
         // intialize register to number of qubits as there are indices
@@ -211,12 +211,12 @@ QESA special case
 
         }
     }
-
+```
 Now we refer back to our QMSA outline to observe that the Algorithm(TableLenght,RandomIndex) is iterated on until we find a suitable y' or we simply hit our time limit. The true stars of this algorithm are the time limit, which guarantees O(sqrt(N)), the generalized Grovers algorithm given in QESA, which provides for easy implementation and has O(1) for each iteration, and lastly, the oracle function which marks our states, which along with our intialization of qubits has O(log(n)).
 
 Here is the python host that will apply the conditions of QMSA while using QESA.
 QMSA Script
-
+```
     class DH(object):
 
       def __init__(self,table):
@@ -260,7 +260,7 @@ QMSA Script
               y = y_prime 
           return y                                                      
 
-
+```
 ## Motivation
 
 The motivation behind this project is to provide open source functionality. The efficiency that is proposed by this algorithm is much better than a typical algorithm for finding the minimum of an unsorted table. On a classical computer it will take as many time steps as there are items to find a minimum. This means the Big-O is N. The Dürr-Høyer algorithm takes this problem and solves it in sqrt(N) time steps. For example assume there are 9 items in a table, on a classical comptuer this would take 9 time steps. The Dürr-Høyer algorithm would find the minimum in 3 steps. We can understand this effecieny as the Big-O. The Big-O essentially means the run time of the program will increase as the table size grows. Dürr and Høyer propose a quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. This success rate is bounded by the Big-O. If we decide to alleviate this Big-O the probability of finding the minimum increases. Essentialy if we let the algorithm run for longer than the time it takes to guarantee a 50% success rate, we will get a success rate greater than 50 %. With this comes some complexity in the inner workings of the library which will be explained when analyzing the algorithm. In order for this library to be used properly it must meet some guidelines. At the moment I am referencing the amazing template given by Dr. Sarah Kaiser https://github.com/crazy4pi314/qsharp-library-template in order to make this library usable in Q#. I am programming the algorithm in Q# with a python host script. The circuit's gates will be analyzed and some code is given.
