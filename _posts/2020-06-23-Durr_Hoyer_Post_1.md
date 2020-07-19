@@ -57,10 +57,10 @@ The QESA algorithm is a generalized Grover's search characterized by the followi
 We can visuailze our algorithm with a circuit design. Below is the QESA circuit.
 
 ### QESA circuit
-![QESA Circuit](assets/images/QESA.JPG).
+![QESA Circuit](/assets/images/QESA.JPG).
 
 Here is the QESA circuit treated as a gate with the intialization on qubits as mentioned above.
-![QESA](assets/images/2-item-list0.gif).
+![QESA](/assets/images/2-item-list0.gif).
 
 Lets break down whats going on here. We utilize the register we were working with earlier and apply a H transform, this is stated to simply be the Hadmard.
 ```
