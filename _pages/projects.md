@@ -16,6 +16,13 @@ feature_row:
     url: "https://github.com/qsharp-community/qsharp-integrations"
     btn_label: "Learn More"
     btn_class: "btn--info"
+  - image_path: /assets/images/chp-cover.png
+    alt: "CHP Simulator"
+    title: "CHP Simulator"
+    excerpt: "Custom simulator backend for Q#"
+    url: "https://github.com/qsharp-community/chp-sim"
+    btn_label: "Learn More"
+    btn_class: "btn--info"
 ---
 
 
