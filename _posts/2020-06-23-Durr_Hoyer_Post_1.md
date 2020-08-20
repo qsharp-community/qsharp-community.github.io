@@ -103,9 +103,7 @@ The full script for QESA can be found here: https://github.com/mertall/DurrHoyer
 
 ### Measuring register
 
-At the moment we are measuring our register by using MeasureInteger(), though this is decoding LittleEndian into an integer as is represented by some binary string. We will have to develop a different way to measure our qubits to get probabilistic results on each qubit.    
-
-To implement QESA we must use a python host file which can be found here: https://github.com/mertall/DurrHoyerLibrary/blob/master/library/QMSA.py.       
+At the moment we are measuring our register by using MeasureInteger(), though this is decoding LittleEndian into an integer as is represented by some binary string. We will have to develop a different way to measure our qubits to get probabilistic results on each qubit.          
 
 ## Motivation
 
