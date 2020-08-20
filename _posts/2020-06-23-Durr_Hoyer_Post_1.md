@@ -36,9 +36,9 @@ Say we have a table with N unsorted items where you want o find the minimul valu
    
 ### Implementing QMSA   
 
-The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum.
+The steps 2(a) and 2(b) pose the biggest challenge if someone has no experience with Quantum Computing. We will first observe how to initalize the register. Then we will see how the QESA can be implemented to find a unique solution, in this case the minimum. Here is a python file implementing QMSA: https://github.com/mertall/DurrHoyerLibrary/blob/master/library/QMSA.py.    
 
-## Initializing our Qubits   
+### Initializing our Qubits   
 
 In order to intialize the register we pepare a uniform superposition of qubits, the number of qubits is determined by the number of elements in our table. We then grab our y-th index and entangle it with our register using a Controlled Z.
 ```
@@ -101,11 +101,9 @@ Now we refer back to our QMSA outline to observe that the Algorithm(TableLength,
 
 The full script for QESA can be found here: https://github.com/mertall/DurrHoyerLibrary/blob/master/library/Library.qs.   
 
-## Measuring register
+### Measuring register
 
 At the moment we are measuring our register by using MeasureInteger(), though this is decoding LittleEndian into an integer as is represented by some binary string. We will have to develop a different way to measure our qubits to get probabilistic results on each qubit.    
-
-## QMSA
 
 To implement QESA we must use a python host file which can be found here: https://github.com/mertall/DurrHoyerLibrary/blob/master/library/QMSA.py.       
 
