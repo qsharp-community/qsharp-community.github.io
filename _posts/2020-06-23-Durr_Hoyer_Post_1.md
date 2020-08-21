@@ -15,7 +15,7 @@ tags:
 
 ## Introduction
 
-Hello all! My name is Mridul Sarkar, and I am an undergraduate at University of California Davis studying Mathematics and Scientific Computation. I wanted to share with the community my experiences in learning about the Dürr–Høyer algorithim and creating a library for Q# implementing it. This project has pushed me and is still pushing me outside of my comfort zone, but learning Q# while slowly refining my quantum intution has been a rewarding experience. I would like to pass on what I have seen and understood in that time, as well as ask the community for feedback. I will likely be posting about this algorithm and library more as the library and my understanding continues developing.
+Hello all! My name is Mridul Sarkar, and I am an undergraduate at University of California Davis studying Mathematics and Scientific Computation. I wanted to share with the community my experiences in learning about the Dürr–Høyer algorithim and creating a library for Q# implementing it. This project has pushed me and is still pushing me outside of my comfort zone, but learning Q# while slowly refining my quantum intution has been a rewarding experience. I would like to pass on what I have seen and understood in that time, as well as ask the community for feedback. I will likely be posting about this algorithm and library more as the library and my understanding continues developing.   
 https://github.com/mridulsar/DurrHoyerLibrary.   
 
 ## The Dürr–Høyer Algorithm   
@@ -109,7 +109,7 @@ At the moment we are measuring our register by using MeasureInteger(), though th
 
 The motivation behind this project is to provide open source functionality. The efficiency that is proposed by this algorithm is much better than a typical algorithm for finding the minimum of an unsorted table. On a classical computer it will take as many time steps as there are items to find a minimum. This means the Big-O is N. The Dürr-Høyer algorithm takes this problem and solves it in sqrt(N) time steps. For example assume there are 9 items in a table, on a classical comptuer this would take 9 time steps. The Dürr-Høyer algorithm would find the minimum in 3 steps. We can understand this effecieny as the Big-O. The Big-O essentially means the run time of the program will increase as the table size grows. Dürr and Høyer propose a quantum algorithms in order to find the minimum of an unsorted table with a 50% success rate. This success rate is bounded by the Big-O. If we decide to alleviate this Big-O, meaning we let the algorithm run for longer, the probability of finding the minimum increases.   
 
-In order for this library to be used properly it must meet some guidelines. At the moment I am referencing the amazing template given by Dr. Sarah Kaiser https://github.com/crazy4pi314/qsharp-library-template in order to make this library usable in Q#. I am programming the algorithm in Q# with a python host script. The circuit's gates will be analyzed and some code is given.
+In order for this library to be used properly it must meet some guidelines. At the moment I am referencing the amazing template given by Dr. Sarah Kaiser https://github.com/crazy4pi314/qsharp-library-template in order to make this library usable in Q#.   
 https://github.com/mridulsar/DurrHoyerLibrary   
 
 ## My Background
