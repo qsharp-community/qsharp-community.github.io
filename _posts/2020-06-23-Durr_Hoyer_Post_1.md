@@ -25,7 +25,7 @@ Say we have a table with N unsorted items where you want to find the minimum val
 ## QMSA   
 
 #### 1. Choose an integer (y) uniformly at random between 0...N-1, where N = flattened table length.
-#### 2. Repeat the following steps until time = 22.5 * sqrt(N) + 1.4 * log^2(N). Time can be easily captured in python using time.clock() which returns wall clock time since program was started. The time begins once we start step 2(a), if time equals the expression with N proceed to step c.
+#### 2. Repeat the following steps until you find an answer.
    #### 2(a) Initialize the memory as a uniform superposition of qubits. Each qubit represents an index. After initializing the memory, grab the y-th qubit and entangle the state of your register with this y-th qubit according to the Oracle that marks all T[j]<T[y].
    #### 2(b) Apply the quantum exponential searching algorithm (2), which is a generalized Grover's search.
    #### 2(c) Measure the first register, call that outcome y' which is an index into the table. If the integer in the table at index y' is less than the integer at y, set y = y'.
