@@ -25,7 +25,7 @@ We’ve already mentioned that QIR is an essential tool when running quantum alg
 
 First, there are optimization steps that can be performed at the intermediate level that can make the overall implementation more efficient. Investigating this optimisation of your input code can help to get a better understanding of where we can make algorithms more efficient and how to improve the quantum programming languages. 
 
-Moreover, you could use the intermediate representation to generate code that is later on given as input into a quantum simulator -- instead of a real device -- which could potentially use a different language than your source one. IThis way, we can easily compare and benchmark different languages and simulators using a common framework.
+Moreover, you could use the intermediate representation to generate code that is later on given as input into a quantum simulator -- instead of a real device -- which could potentially use a different language than your source one. In this way, we can easily compare and benchmark different languages or simulators using a common framework.
 
 # References and further reading
 
