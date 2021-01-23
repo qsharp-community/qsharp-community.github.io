@@ -35,3 +35,12 @@ mridulsar:
       - label: "Email"
         icon: "fas fa-fw fa-envelope-square"
         url: "mailto:msarkar@ucdavis.edu"
+
+esthercruz:
+    name        : "Esther Cruz Rico"
+    bio         : "PhD candidate in Quantum Computing at Max-Planck Institute for Quantum Optics | BMW "
+    avatar      : "https://avatars.githubusercontent.com/u/61158195?s=400&u=79dba8bca77844664bb9e1596dc7811bc740a3d1&v=4"
+    links:
+      - label: "Email"
+        icon: "fas fa-fw fa-envelope-square"
+        url: "mailto:esthercr18@gmail.com"
