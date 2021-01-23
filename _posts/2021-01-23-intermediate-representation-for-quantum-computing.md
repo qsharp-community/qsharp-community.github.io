@@ -1,8 +1,13 @@
 ---
 title: "Intermediate representation for quantum computing"
+author: esthercruz
 date: 2021-01-23
 categories:
   - blog
+tags:
+  - contributed-post
+  - qir
+  - compiler
 ---
 
 # Intermediate representation for quantum computing
