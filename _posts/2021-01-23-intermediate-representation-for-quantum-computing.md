@@ -17,6 +17,8 @@ QIR is based on LLVM, which is a classical, well-spread, open-source intermediat
  
 The fact that LLVM is the underlying language means that QIR is naturally able to process both classical and quantum logic. This feature is essential for the so-called hybrid algorithms, which have experienced an incredible boost in the last years. This kind of algorithms include both quantum and classical operations that influence each other. This is the case, for instance, of variational algorithms, where a parameter-dependent quantum circuit is run, followed by a classical post-processing and optimization part, which is later used to update the circuit in the quantum device. Part of the reason why these algorithms have generated such a great interest lately is their ability to tackle optimization problems – take for instance the Quantum Approximate Optimization Algorithm (QAOA), which can be used for solving graph problems such as Max-Cut, among other applications – or even quantum chemistry problems – for example, by using the Variational Quantum Eigensolver to approximate a Hamiltonian’s spectrum.
 
+![QIR workflow](/assets/images/qir_diagram.png)
+
 # Why is QIR interesting?
  
 We’ve already mentioned that QIR is an essential tool when running quantum algorithms on real hardware. But even if we do not want to go that far and are just developing algorithms at a more theoretical level, intermediate representations can play an important role! 
