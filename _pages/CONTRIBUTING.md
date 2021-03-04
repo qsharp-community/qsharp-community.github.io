@@ -32,7 +32,7 @@ The community generally suggests MIT licence, as most open source .NET projects 
 ## Reporting issues and suggesting new features
 
 If something about one of the community projects is not working properly, please file an issue of the corresponding repository.
-If you have ideas for new features of the community throw them up on the [Gitter](https://gitter.im/qsharp-community/community) and maintainers can then create [projects](https://github.com/qsharp-community/qsharp-community.github.io/projects) on this repo to track progress and discussions.
+If you have ideas for new features of the community throw them up on the [Slack](https://join.slack.com/t/qsharp-community/shared_invite/zt-fnsl4u42-u21wdJRzlLF9oAqYTDDtwA) and maintainers can then create [projects](https://github.com/qsharp-community/qsharp-community.github.io/projects) on this repo to track progress and discussions.
 Remember that all community interactions must abide by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Finding issues you can help with

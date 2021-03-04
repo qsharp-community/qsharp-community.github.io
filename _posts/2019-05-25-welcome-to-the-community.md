@@ -14,7 +14,7 @@ Being this is a community project, we get to decide what we want to host here!
 An initial proposal could be to use this blog to highlight the _community_, by having posts about projects contributed here, or about things folks are doing with Q# elsewhere.
 The posts here need not be exclusive, they could easily be cross-posted to other blog sites as well.
 
->If you have any ideas for a post or would like to volunteer to contribute on, either make a [pull request](https://github.com/qsharp-community/qsharp-community.github.io/pulls) or hop on the [Gitter](https://gitter.im/qsharp-community/community) and let us know!
+>If you have any ideas for a post or would like to volunteer to contribute on, either make a [pull request](https://github.com/qsharp-community/qsharp-community.github.io/pulls) or hop on the [Slack](https://join.slack.com/t/qsharp-community/shared_invite/zt-fnsl4u42-u21wdJRzlLF9oAqYTDDtwA) and let us know!
 
 You can find some templates for posts from the website theme we are using [here](https://github.com/mmistakes/mm-github-pages-starter).
 

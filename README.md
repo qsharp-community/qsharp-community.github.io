@@ -1,6 +1,5 @@
 # Welcome to the Q# Community!
-
-[![Gitter](https://badges.gitter.im/qsharp-community/community.svg)](https://gitter.im/qsharp-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Slack](https://img.shields.io/badge/slack-QSharpCommunity-blue.svg?logo=slack)](https://join.slack.com/t/qsharp-community/shared_invite/zt-fnsl4u42-u21wdJRzlLF9oAqYTDDtwA)
 
 This group collects + maintains projects related to the [Q# programming language](https://docs.microsoft.com/quantum) by a community of folks who are excited about quantum programming! 😊
 

@@ -14,9 +14,9 @@ There has been a lot of exciting developments in the Q# community recently, from
 We here at the community have been working hard to curate more community projects, posts, and Q# content, like our new [qRAM library](https://github.com/qsharp-community/qram) or [Q# live coding on twitch](https://www.twitch.tv/crazy4pi314)!
 We are super excited to highlight some of the amazing open source community projects and content that are making the Q# and quantum development community better.
 
-If you would like to contribute a blog post, host your project as a part of the community, or have any ideas for a project you would like to see, either make a [pull request](https://github.com/qsharp-community/qsharp-community.github.io/pulls) or hop on the [Gitter](https://gitter.im/qsharp-community/community) and let us know!
+If you would like to contribute a blog post, host your project as a part of the community, or have any ideas for a project you would like to see, either make a [pull request](https://github.com/qsharp-community/qsharp-community.github.io/pulls) or hop on the [Slack](https://join.slack.com/t/qsharp-community/shared_invite/zt-fnsl4u42-u21wdJRzlLF9oAqYTDDtwA) and let us know!
 
-> Never made a pull request before? Not sure how to use our website template? We can help! Just message us on the [Gitter](https://gitter.im/qsharp-community/community) or send an email to [info@qsharp.community](mailto:info@qsharp.community)💖
+> Never made a pull request before? Not sure how to use our website template? We can help! Just message us on the [Slack](https://join.slack.com/t/qsharp-community/shared_invite/zt-fnsl4u42-u21wdJRzlLF9oAqYTDDtwA) or send an email to [info@qsharp.community](mailto:info@qsharp.community)💖
 
 Thanks, and we are excited to see how this community grows!
 
