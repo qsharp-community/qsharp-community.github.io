@@ -16,6 +16,13 @@ feature_row:
     url: "https://github.com/qsharp-community/qsharp-integrations"
     btn_label: "Learn More"
     btn_class: "btn--info"
+  - image_path: /assets/images/qa-zoo.png
+    alt: "Algorithm Zoo"
+    title: "Algorithm Zoo"
+    excerpt: "Reference implementations of quantum algorithms in Q#"
+    url: "https://github.com/qsharp-community/algorithm-zoo"
+    btn_label: "Learn More"
+    btn_class: "btn--info"
   - image_path: /assets/images/chp-cover.png
     alt: "CHP Simulator"
     title: "CHP Simulator"

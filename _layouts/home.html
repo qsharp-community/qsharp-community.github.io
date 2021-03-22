@@ -6,11 +6,16 @@ permalink: /
 toc: false
 ---
 <h1>Welcome!</h1>
-<a href="https://gitter.im/qsharp-community/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/qsharp-community/community.svg" title="gitter-badge" /></a>
-<a href="https://join.slack.com/t/qsharp-community/shared_invite/zt-fnsl4u42-u21wdJRzlLF9oAqYTDDtwA"><img src="https://img.shields.io/badge/chat-on%20slack-blue" title="slack-badge" /></a>
-<img alt="GitHub" src="https://img.shields.io/github/license/qsharp-community/qsharp-community.github.io">
+<a href="https://qsharp.community/coc"><img alt="Code of Conduct Badge" src="https://img.shields.io/badge/Q%23%20Community-Code%20of%20Conduct-%233b9cba?color=409ae1&" title="coc-badge" /></a>
+<a href="https://discord.qsharp.community"><img alt="Discord Badge" src="https://img.shields.io/discord/724763240751562794?color=409ae1&logo=Discord" title="discord-badge" /></a>
+<a href="https://twitter.com/qsharpcommunity"><img alt="Twitter Badge" src="https://img.shields.io/twitter/follow/qsharpcommunity?color=409ae1&logo=twitter&style=flat" title="discord-badge" /></a>
+<a href="https://github.com/qsharp-community/qsharp-community.github.io/blob/master/LICENSE"><img alt="GitHub Licence" src="https://img.shields.io/github/license/qsharp-community/qsharp-community.github.io"/></a>
 <br><br>
 This group collects + maintains projects related to the Q# programming language by a community of folks who are excited about quantum programming! 😊
+
+<h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Featured Community Projects" }}</h2>
+
+{% include feature_row %}
 
 <h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Community Posts" }}</h2>
 
@@ -20,7 +25,4 @@ This group collects + maintains projects related to the Q# programming language 
 
 {% include paginator.html %}
 
-<h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Featured Community Projects" }}</h2>
-
-{% include feature_row %}
 
