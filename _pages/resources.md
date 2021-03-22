@@ -1,6 +1,6 @@
 ---
 permalink: /resources/
-title: "Q# Community Resources"
+title: "Q# Learning Resources"
 toc: true
 ---
 Please make a [pull request](https://help.github.com/en/articles/creating-a-pull-request) on the repo for [this webpage](https://github.com/qsharp-community) if you have any suggestions for resources to add to this page!

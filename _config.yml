@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Q# Community
-subtitle: Community-Driven Quantum Development
+#subtitle: Community-Driven Quantum Development
 email: info@qsharp.community
 description: >- # this means to ignore newlines until "baseurl:"
   A space for community-driven projects and contrib libraries for Q#

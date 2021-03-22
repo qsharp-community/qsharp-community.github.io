@@ -2,7 +2,7 @@
 permalink: /contributing/
 title: Contributing to Q# Community
 toc: true
-author_profile: false
+author_profile: true
 ---
 
 This community encourages feedback and contributions.
