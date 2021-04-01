@@ -6,7 +6,8 @@ title: "About"
 The Q# Community collects + maintains projects related to the Q# programming language by a community of folks who are excited about quantum programming!
 The types of content hosted here are (but are not limited to):
 
-- New community libraries for Q#
+- New libraries or tooling integrations for Q#
+- Implementations of particular algorithms in Q#
 - Tutorial or workshop materials featuring Q# code
 - Extensions to the Q# language itself that need some testing before being added to official repositories
 - Blog posts on cool Q# projects or documenting how you use the QKD

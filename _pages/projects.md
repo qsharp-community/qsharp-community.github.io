@@ -30,6 +30,13 @@ feature_row:
     url: "https://github.com/qsharp-community/chp-sim"
     btn_label: "Learn More"
     btn_class: "btn--info"
+  - image_path: /assets/images/discord-bot-cover.png
+    alt: "Q# Discord Bot"
+    title: "Q# Discord Bot"
+    excerpt: "Run Q# snippets in Discord chat"
+    url: "https://github.com/qsharp-community/qsharp-discord-bot"
+    btn_label: "Learn More"
+    btn_class: "btn--info"
 ---
 
 

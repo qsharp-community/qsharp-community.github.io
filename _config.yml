@@ -65,9 +65,6 @@ author:
   avatar : "/assets/images/qsharp-comm-logo.png"
   bio    : "A space for community-driven projects and contrib libraries for Q#."
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://qsharp.community/"
     - label: "Discord"
       icon: "fab fa-fw fa-discord"
       url: "https://discord.qsharp.community"
@@ -77,6 +74,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/qsharp-community"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/channel/UCjJmQ9n7AcfrekuyoRFBukQ"
 
 footer:
   links:
@@ -89,6 +89,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/qsharp-community"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/channel/UCjJmQ9n7AcfrekuyoRFBukQ"
 
 defaults:
   # _posts
