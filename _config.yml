@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Q# Community
-subtitle: Community-Driven Quantum Development
+#subtitle: Community-Driven Quantum Development
 email: info@qsharp.community
 description: >- # this means to ignore newlines until "baseurl:"
   A space for community-driven projects and contrib libraries for Q#
@@ -65,30 +65,33 @@ author:
   avatar : "/assets/images/qsharp-comm-logo.png"
   bio    : "A space for community-driven projects and contrib libraries for Q#."
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://qsharp.community/"
+    - label: "Discord"
+      icon: "fab fa-fw fa-discord"
+      url: "https://discord.qsharp.community"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/QSharpCommunity"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/qsharp-community"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/qsharpcommunity"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/channel/UCjJmQ9n7AcfrekuyoRFBukQ"
 
 footer:
   links:
+    - label: "Discord"
+      icon: "fab fa-fw fa-discord"
+      url: "https://discord.qsharp.community"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/QSharpCommunity"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/qsharp-community"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/qsharpcommunity"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/channel/UCjJmQ9n7AcfrekuyoRFBukQ"
 
 defaults:
   # _posts

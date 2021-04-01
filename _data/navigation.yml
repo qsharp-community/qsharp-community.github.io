@@ -1,11 +1,11 @@
 main:
-  - title: "About"
-    url: /about/
   - title: "Projects"
     url: /projects/
-  - title: "Community Blog"
+  - title: "Blog"
     url: /posts/
-  - title: "Resources"
+  - title: "Learn"
     url: /resources/
   - title: "Contribute"
     url: /contributing/
+  - title: "About"
+    url: /about/
