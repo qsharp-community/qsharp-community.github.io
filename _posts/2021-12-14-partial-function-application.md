@@ -1,7 +1,7 @@
 ---
 title: "Partial application in Q#"
 author: filipw
-date: 2021-12-14
+date: 2021-12-10
 categories:
   - blog
 tags:
