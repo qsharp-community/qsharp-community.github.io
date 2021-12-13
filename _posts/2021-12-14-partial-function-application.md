@@ -1,7 +1,7 @@
 ---
 title: "Partial application in Q#"
 author: filipw
-date: 2021-12-14
+date: 2021-12-10
 categories:
   - blog
 tags:
@@ -26,11 +26,11 @@ function ThreeArgumentFunction(number : Int, text : String, result : Result) : U
 }
 ```
 
-With the regular function invocation process, we'd need to always supply all three argument values when the function is called. However, using partial application, the function can be transformed, without being evaluated, into another function which accepts less parameters than the original one. At this point we have a function pointer that may be invoked with a different parameter set than the source function, or that could be passed around to other functions.
+With the regular function invocation process, we'd need to always supply all three argument values when the function is called. However, using partial application, the function can be transformed, without being evaluated, into another function which accepts fewer parameters than the original one. At this point we have a function pointer that may be invoked with a different parameter set than the source function, or that could be passed around to other functions.
 
 More practically speaking, this new function is created when the calling code passes only the subset of function arguments - those, whose values it can provide already at that point. The rest of the arguments have to be replaced with the discard symbol `_` and the new function only expects parameters corresponding to those for which the discard was used.
 
-For example by passing a specific `Result` value such as `Zero` as positional argument three, we can convert our `ThreeArgumentFunction` into a new two argument function, which defines two parameters of `Int` and `String` type only, and which internalizes the pass-in argument `Zero`.
+For example, by passing a specific `Result` value such as `Zero` as positional argument three, we can convert our `ThreeArgumentFunction` into a new two argument function, which defines two parameters of `Int` and `String` type only, and which internalizes the pass-in argument `Zero`.
 
 ```
 let twoArgumentFunction = ThreeArgumentFunction(_, _, Zero); 
@@ -116,7 +116,7 @@ function FilterByFiveAsCoPrime(numbers : Int[]) : Int[] {
 
 ### Quantum operations
 
-Of course partial application can be used not just with Q#'s functions, but also with operations. Consider the following operation which prepares the entangled state of two qubits, and allows to run some arbitrary preparation code on either of them:
+Of course partial application can be used not just with Q#'s functions, but also with operations. Consider the following operation acting on two qubits, which applies a fixed sequence of gates to them and then prepares an entangled state:
 
 ```
 operation InitEntangledState(
