@@ -15,6 +15,7 @@ Please make a [pull request](https://help.github.com/en/articles/creating-a-pull
 
 ## Books
 - [_Learn Quantum Computing with Python and Q#_](http://www.manning.com/?a_aid=learn-qc-kaiser)
+- [_Introduction to Quantum Computing with Q# and QDK_](https://link.springer.com/book/10.1007/978-3-030-99379-5)
 
 ## Online Courses
 - [Quantum Computing](https://brilliant.org/courses/quantum-computing/) by Brilliant
